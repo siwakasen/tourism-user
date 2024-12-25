@@ -5,7 +5,6 @@ import '@/styles/globals.css';
 // !STARTERCONF This is for demo purposes, remove @/styles/colors.css import immediately
 import '@/styles/colors.css';
 
-import Footer from '@/components/common/layouts/bottombar';
 import NavBar from '@/components/common/layouts/navbar';
 
 import { siteConfig } from '@/constant/config';
@@ -50,10 +49,9 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <head />
-      <body className='bg-neutral-light'>
-        {!(children as any).type?.name?.includes('not-found') && <NavBar />}
+      <body className='bg-neutral-light font-libre'>
+        <NavBar />
         <main>{children}</main>
-        <Footer />
       </body>
     </html>
   );

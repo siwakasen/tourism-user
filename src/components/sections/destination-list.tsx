@@ -16,7 +16,7 @@ const destinations: Destination[] = [
 
 const DestinationList: React.FC = () => {
   return (
-    <div className='w-full max-w-lg mx-auto bg-gray-50'>
+    <div className='w-full mx-auto  text-black'>
       {destinations.map((item, index) => (
         <div
           key={index}
@@ -25,11 +25,13 @@ const DestinationList: React.FC = () => {
           }`}
         >
           {/* Left Section */}
-          <span className='text-lg font-semibold'>{item.location}</span>
+          <span className='xl:text-lg text-sm font-semibold'>
+            {item.location}
+          </span>
 
           {/* Right Section */}
           <div className='flex items-center gap-2'>
-            <span className='border rounded-full px-3 py-1 text-sm font-medium'>
+            <span className='border border-black rounded-full xl:px-3 px-1 xl:py-1 xl:text-sm text-[10px] font-medium'>
               {item.activity}
             </span>
             <span className='border rounded-full px-3 py-1 text-sm font-medium'>

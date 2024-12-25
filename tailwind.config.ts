@@ -2,7 +2,7 @@ import type { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  content: ['./src/**/*.{js,jsx,ts,tsx}', 'node_modules/preline/dist/*.js'],
   theme: {
     extend: {
       fontFamily: {
@@ -57,7 +57,11 @@ export default {
       },
     },
   },
-  plugins: [require('@tailwindcss/forms'), require('daisyui')],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('daisyui'),
+    require('preline/plugin'),
+  ],
   daisyui: {
     themes: ['light', 'dark'], // Aktifkan tema light dan dark
   },
