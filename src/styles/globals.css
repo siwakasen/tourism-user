@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
   --color-primary: #153564;
   --color-primary-light: #2fa4d6;
@@ -55,39 +54,60 @@
 
   /* #region  /**=========== Typography =========== */
   .h0 {
-    @apply font-primary text-3xl font-bold md:text-5xl;
+    @apply font-libre text-3xl font-bold md:text-5xl;
   }
 
   h1,
   .h1 {
-    @apply font-primary text-2xl font-bold md:text-4xl;
+    @apply font-libre text-2xl font-bold md:text-4xl;
   }
 
   h2,
   .h2 {
-    @apply font-primary text-xl font-bold md:text-3xl;
+    @apply font-libre text-xl font-bold md:text-3xl;
   }
 
   h3,
   .h3 {
-    @apply font-primary text-lg font-bold md:text-2xl;
+    @apply font-libre text-lg font-bold md:text-2xl;
   }
 
   h4,
   .h4 {
-    @apply font-primary text-base font-bold md:text-lg;
+    @apply font-libre text-base font-bold md:text-lg;
   }
 
   body,
   .p {
-    @apply font-primary text-sm md:text-base;
+    @apply font-libre text-sm md:text-base;
   }
   /* #endregion  /**======== Typography =========== */
 
   .layout {
-    /* 1100px */
-    max-width: 88.75rem;
+    /* Responsive max-width */
     @apply mx-auto w-11/12;
+    max-width: 100%;
+    padding: 0px 20px;
+    @screen sm {
+      padding: 0px 20px;
+      max-width: 640px;
+    }
+    @screen md {
+      padding: 0px 25px;
+      max-width: 768px;
+    }
+    @screen lg {
+      padding: 0px 30px;
+      max-width: 1024px;
+    }
+    @screen xl {
+      padding: 0px 40px;
+      max-width: 1280px;
+    }
+    @screen 2xl {
+      padding: 0px 50px;
+      max-width: 1536px;
+    }
   }
 
   .bg-dark a.custom-link {

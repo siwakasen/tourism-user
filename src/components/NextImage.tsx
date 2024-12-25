@@ -10,10 +10,7 @@ type NextImageProps = {
   blurClassName?: string;
   containerStyle?: React.CSSProperties;
   alt: string;
-} & (
-  | { width: string | number; height: string | number }
-  | { layout: 'fill'; width?: string | number; height?: string | number }
-) &
+} & ({ width: string | number; height: string | number } | { fill?: boolean }) &
   ImageProps;
 
 export default function NextImage({
@@ -26,7 +23,7 @@ export default function NextImage({
   imageClassName,
   blurClassName,
   containerStyle,
-  layout = 'intrinsic', // Default layout jika tidak diisi
+  fill = false, // Default fill adalah false
   ...rest
 }: NextImageProps) {
   const [status, setStatus] = React.useState<'loading' | 'complete'>(
@@ -37,24 +34,24 @@ export default function NextImage({
     <div
       style={containerStyle}
       className={cn(
-        'relative', // Relative untuk layout fill
-        layout === 'fill' ? 'w-full h-full' : '',
+        'relative', // Posisi relative untuk layout fill
+        fill ? 'w-full h-full' : '', // Hanya berlaku jika fill true
         className
       )}
     >
       <Image
         src={src}
-        layout={layout}
-        width={layout !== 'fill' ? width : undefined}
-        height={layout !== 'fill' ? height : undefined}
-        objectFit='cover' // Memotong gambar sesuai kontainer
+        fill={fill} // Properti fill menggantikan layout
+        width={!fill ? width : undefined} // Hanya gunakan width jika fill false
+        height={!fill ? height : undefined} // Hanya gunakan height jika fill false
+        style={{ objectFit: 'cover' }} // Properti baru menggantikan objectFit
         alt={alt}
         className={cn(
           imageClassName,
           status === 'loading' && 'animate-pulse',
           blurClassName
         )}
-        onLoadingComplete={() => setStatus('complete')}
+        onLoad={() => setStatus('complete')} // Ganti onLoadingComplete dengan onLoad
         {...rest}
       />
     </div>

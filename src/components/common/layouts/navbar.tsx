@@ -66,7 +66,7 @@ const NavBar = () => {
             </div>
             <UnstyledLink href='/'>
               <div className='btn btn-ghost text-xl text-neutral-light'>
-                TourWeb
+                Ride Bali Destination
               </div>
             </UnstyledLink>
           </div>
@@ -75,7 +75,7 @@ const NavBar = () => {
               {navigationData.map((item) => (
                 <li key={item.href}>
                   <UnstyledLink href={item.href}>
-                    <div>{item.title}</div>
+                    <p className='sm:text-lg text-sm'>{item.title}</p>
                   </UnstyledLink>
                 </li>
               ))}
