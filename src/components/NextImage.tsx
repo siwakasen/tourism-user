@@ -44,7 +44,11 @@ export default function NextImage({
         fill={fill} // Properti fill menggantikan layout
         width={!fill ? width : undefined} // Hanya gunakan width jika fill false
         height={!fill ? height : undefined} // Hanya gunakan height jika fill false
-        style={{ objectFit: 'cover' }} // Properti baru menggantikan objectFit
+        style={
+          fill
+            ? { objectFit: 'cover' }
+            : { objectFit: 'cover', width: 'auto', height: 'auto' } // Tambahkan width dan height auto
+        }
         alt={alt}
         className={cn(
           imageClassName,

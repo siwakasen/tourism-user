@@ -3,13 +3,13 @@
 import * as React from 'react';
 import '@/lib/env';
 
-// import CarRentalOverview from '@/components/sections/home/car-rental-overview-section';
-// import HeroSection from '@/components/sections/home/hero-section';
-// import PackageTourPupulerSection from '@/components/sections/home/package-tour.populer-section';
-// import PackageTourOverviewSection from '@/components/sections/home/package-tour-overview-section';
-// import ReviewOverviewSection from '@/components/sections/home/review-overview-section';
-// import WhyChooseUsSection from '@/components/sections/home/why-choose-us-section';
-// import EndSection from '@/components/sections/home/end-section';
+import CarRentalOverview from '@/components/sections/home/car-rental-overview-section';
+import EndSection from '@/components/sections/home/end-section';
+import HeroSection from '@/components/sections/home/hero-section';
+import PackageTourPupulerSection from '@/components/sections/home/package-tour.populer-section';
+import PackageTourOverviewSection from '@/components/sections/home/package-tour-overview-section';
+import ReviewOverviewSection from '@/components/sections/home/review-overview-section';
+import WhyChooseUsSection from '@/components/sections/home/why-choose-us-section';
 
 /**
  * SVGR Support
@@ -25,8 +25,8 @@ import '@/lib/env';
 
 export default function HomePage() {
   return (
-    <main>
-      {/* <HeroSection />
+    <div>
+      <HeroSection />
       <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
       <PackageTourOverviewSection />
       <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
@@ -38,7 +38,7 @@ export default function HomePage() {
       <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
       <ReviewOverviewSection />
       <div className='xlh-[20rem] sm:h-[12rem] h-[6rem]'></div>
-      <EndSection /> */}
-    </main>
+      <EndSection />
+    </div>
   );
 }

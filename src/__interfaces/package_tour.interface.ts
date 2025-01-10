@@ -19,7 +19,7 @@ export interface PackageTour {
   status: boolean;
   created_at: string;
   updated_at: string;
-  deleted_at: string;
+  deleted_at?: string;
 }
 
 export interface Meta {

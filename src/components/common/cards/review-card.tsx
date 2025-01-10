@@ -36,8 +36,6 @@ const ReviewCard = ({
           alt={`${name}'s profile picture`}
           width={100}
           height={100}
-          layout='responsive'
-          objectFit='cover'
           sizes='(max-width: 100px) 100vw, 100px'
           imageClassName='rounded-full'
         />
