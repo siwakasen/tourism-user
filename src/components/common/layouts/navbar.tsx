@@ -83,7 +83,7 @@ const NavBar = () => {
                 isScrolled ? 'text-black' : 'text-neutral-light'
               }`}
             >
-              <span className='text-primary'>Ride Bali</span> Destination
+              <span className='text-primary'>Ride Bali</span> Explore
             </div>
           </UnstyledLink>
         </div>
