@@ -55,16 +55,14 @@ const HeroSection = () => {
             initial='hidden'
             animate='visible'
           >
-            Ride Bali
+            Ride Bali Explore
           </motion.h1>
-          <motion.h1
+          {/* <motion.h1
             className='xl:text-9xl lg:text-8xl sm:text-7xl text-5xl font-libre'
             variants={textVariant}
             initial='hidden'
             animate='visible'
-          >
-            Destination
-          </motion.h1>
+          ></motion.h1> */}
         </div>
         <div className='flex justify-between w-full'>
           <motion.p
