@@ -63,6 +63,6 @@ export default {
     require('preline/plugin'),
   ],
   daisyui: {
-    themes: ['light', 'dark'], // Aktifkan tema light dan dark
+    themes: ['light'], // Aktifkan tema light dan dark
   },
 } satisfies Config;

@@ -1,37 +1,76 @@
+import { motion, useAnimation } from 'framer-motion';
+import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+
 import ButtonLink from '@/components/common/links/ButtonLink';
 import NextImage from '@/components/NextImage';
 
-const superiorities: {
-  title: string;
-  description: string;
-}[] = [
+const superiorities = [
   {
-    title: 'Enjoy a great journey tailoared just for you',
-    description: 'We provide',
+    title: 'Enjoy a great journey tailored just for you',
+    description: 'We provide the best experiences for our customers.',
   },
   {
-    title: 'Enjoy a great journey tailoared just for you',
-    description: 'We provide',
+    title: 'Affordable and reliable services',
+    description: 'Experience the best quality at a reasonable price.',
   },
   {
-    title: 'Enjoy a great journey tailoared just for you',
-    description: 'We provide',
+    title: 'Trusted by thousands',
+    description: 'Join the community of happy travelers.',
   },
   {
-    title: 'Enjoy a great journey tailoared just for you',
-    description: 'We provide',
+    title: 'Wide range of options',
+    description: 'From budget-friendly to luxurious travels.',
   },
 ];
 
 const WhyChooseUsSection = () => {
-  return (
-    <section>
-      <div className='flex flex-col layout w-full '>
-        <h2 className='divider divide-solid divide-y-12 divider-start xl:text-xl sm:text-lg text-sm'>
-          Why Choose Us
-        </h2>
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2, // 20% visible to trigger
+  });
 
-        <div className='grid grid-cols-5 xl:gap-[12rem] sm:gap-[6rem] gap-[2rem]'>
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+  }, [controls, inView]);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  return (
+    <section ref={ref}>
+      <motion.div
+        className='flex flex-col layout w-full'
+        initial='hidden'
+        animate={controls}
+        variants={containerVariants}
+      >
+        <motion.h2
+          className='divider divide-solid divide-y-12 divider-start xl:text-xl sm:text-lg text-sm'
+          variants={itemVariants}
+        >
+          Why Choose Us
+        </motion.h2>
+
+        <motion.div
+          className='grid grid-cols-5 xl:gap-[12rem] sm:gap-[6rem] gap-[2rem]'
+          variants={itemVariants}
+        >
           <div className='sm:col-span-2 col-span-5'>
             <h3 className='xl:text-5xl sm:text-3xl text-2xl'>
               Your Trusted Partner In Travel
@@ -50,38 +89,45 @@ const WhyChooseUsSection = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
+
         <div className='sm:h-[6rem] h-[2rem]'></div>
-        <div className='grid grid-cols-5 xl:gap-[12rem] sm:gap-[6rem] gap-[2rem]'>
+
+        <motion.div
+          className='grid grid-cols-5 xl:gap-[12rem] sm:gap-[6rem] gap-[2rem]'
+          variants={containerVariants}
+        >
           <div className='sm:col-span-2 col-span-5'>
             <NextImage
               src='/images/hero3_img.jpg'
-              alt='#'
+              alt='Travel Image'
               width={300}
               height={200}
-              layout='responsive'
               imageClassName='rounded-2xl'
-              objectFit='cover'
             />
           </div>
-          <div className='sm:col-span-3 col-span-5 flex justify-start items-start gap-6 '>
+          <div className='sm:col-span-3 col-span-5 flex justify-start items-start gap-6'>
             <div className='flex flex-col gap-6 w-full'>
               {superiorities.map((item, index) => (
-                <div key={index} className='flex gap-4 w-full'>
+                <motion.div
+                  key={index}
+                  className='flex gap-4 w-full'
+                  variants={itemVariants}
+                >
                   <h4 className='sm:text-2xl text-xl'>{index + 1}</h4>
                   <div className='flex flex-col w-full'>
                     <h4 className='text-black font-light sm:text-2xl text-xl'>
                       {item.title}
                     </h4>
                     <p>{item.description}</p>
-                    <div className='mt-6 w-full border-t-2 '></div>
+                    <div className='mt-6 w-full border-t-2'></div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

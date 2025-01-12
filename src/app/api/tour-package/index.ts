@@ -1,7 +1,7 @@
 import {
   ListTourPackageResI,
   PaginationI,
-} from '@/_interfaces/package_tour.interface';
+} from '@/__interfaces/package_tour.interface';
 
 import { Api } from '../api';
 
