@@ -1,10 +1,10 @@
 import { formatCurrency } from '@/lib/helpers/currency';
+import { getImageFromAPI } from '@/lib/helpers/getImage';
 
 import ButtonLink from '@/components/common/links/ButtonLink';
-import NextImage from '@/components/NextImage';
 
 import { PackageTour } from '@/__interfaces/package_tour.interface';
-
+import NextImage from '@/components/NextImage';
 interface TourPackageCardProps {
   packagetour: PackageTour;
 }
@@ -15,7 +15,7 @@ const TourPackageCard = ({ packagetour }: TourPackageCardProps) => {
       {/* Image Section */}
       <div className='relative h-[40%]'>
         <NextImage
-          src={packagetour.images[0]}
+          src={getImageFromAPI(packagetour.images[0])}
           alt={packagetour.package_name}
           fill
           className='object-cover'
@@ -72,7 +72,7 @@ const TourPackageCard = ({ packagetour }: TourPackageCardProps) => {
       <ButtonLink href={`/packages-tour/${packagetour.id}`}>
         <div className='absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex justify-center items-center transition-opacity duration-300'>
           <NextImage
-            src={packagetour.images[0] || packagetour.images[0]}
+            src={getImageFromAPI(packagetour.images[0])}
             alt={packagetour.package_name}
             fill
             className='object-cover'
