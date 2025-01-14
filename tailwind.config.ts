@@ -1,8 +1,13 @@
+import { nextui } from '@nextui-org/theme';
 import type { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
-  content: ['./src/**/*.{js,jsx,ts,tsx}', 'node_modules/preline/dist/*.js'],
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    'node_modules/preline/dist/*.js',
+    './node_modules/@nextui-org/theme/dist/components/skeleton.js',
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -61,6 +66,7 @@ export default {
     require('@tailwindcss/forms'),
     require('daisyui'),
     require('preline/plugin'),
+    nextui(),
   ],
   daisyui: {
     themes: ['light'], // Aktifkan tema light dan dark

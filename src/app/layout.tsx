@@ -1,3 +1,4 @@
+import { NextUIProvider } from '@nextui-org/react';
 import { Metadata } from 'next';
 import React from 'react';
 
@@ -50,8 +51,10 @@ export default function RootLayout({
     <html lang='en'>
       <head />
       <body className='bg-neutral-light font-libre'>
-        <NavBar />
-        <main>{children}</main>
+        <NextUIProvider>
+          <NavBar />
+          <main>{children}</main>
+        </NextUIProvider>
       </body>
     </html>
   );

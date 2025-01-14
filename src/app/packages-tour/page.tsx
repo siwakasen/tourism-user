@@ -3,9 +3,14 @@ import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 
 import TourPackageCard from '@/components/common/cards/package-tour-card';
+import SkeletonCard from '@/components/common/cards/skeleton-card';
 import NextImage from '@/components/NextImage';
 
-import { PackageTour } from '@/__interfaces/package_tour.interface';
+import {
+  PackageTour,
+  PaginationI,
+} from '@/__interfaces/package_tour.interface';
+import { useGetTourPackages } from '@/_hooks/package-tour';
 
 export const data: PackageTour[] = [
   {
@@ -78,6 +83,14 @@ export const data: PackageTour[] = [
 ];
 
 const ListPackageTour = () => {
+  const [paginationParams, setPaginationParams] = useState<PaginationI>({
+    limit: 10,
+    page: 1,
+    search: '',
+  });
+
+  const { tourPackages, loading, error } = useGetTourPackages(paginationParams);
+  console.log(tourPackages);
   const [searchTerm, setSearchTerm] = useState('');
   const [filters, setFilters] = useState({
     location: '',
@@ -89,7 +102,7 @@ const ListPackageTour = () => {
     setFilters((prev) => ({ ...prev, [key]: value }));
   };
 
-  const filteredData = data.filter((item) => {
+  const filteredData = tourPackages?.data.filter((item) => {
     const matchesLocation =
       !filters.location || item.pickup_areas.includes(filters.location);
     const matchesPrice =
@@ -234,16 +247,23 @@ const ListPackageTour = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
-              {filteredData.map((item, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                  className=' flex justify-center'
-                >
-                  <TourPackageCard packagetour={item} />
-                </motion.div>
-              ))}
+              {loading ? (
+                <>
+                  <SkeletonCard />
+                  <SkeletonCard />
+                </>
+              ) : (
+                filteredData?.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                    className=' flex justify-center'
+                  >
+                    <TourPackageCard packagetour={item} />
+                  </motion.div>
+                ))
+              )}
             </motion.div>
           </motion.div>
         </div>
