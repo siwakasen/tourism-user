@@ -20,14 +20,14 @@ const CarOverviewCard = ({
 }: CarOverviewCardProps) => {
   return (
     <div className='flex flex-col gap-2'>
-      <div className='relative w-full h-[500px]'>
+      <div className='relative w-full h-[500px] '>
         <NextImage
           src={image}
           alt='#'
           fill
           style={{ objectFit: 'cover' }}
           sizes='(max-width: 500px) 100vw, 500px'
-          imageClassName='sm:rounded-2xl rounded-lg'
+          imageClassName='sm:rounded-2xl rounded-lg shadow-lg'
         />
       </div>
 

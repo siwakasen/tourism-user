@@ -122,7 +122,7 @@ const NavBar = () => {
         {/* Navbar End */}
         <div className='navbar-end'>
           <ButtonLink
-            href='/package-tour'
+            href='/packages-tour'
             className={`rounded-full ${
               isScrolled
                 ? 'bg-black text-white hover:bg-black border border-white'

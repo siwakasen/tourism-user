@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   robots: { index: true, follow: true },
   icons: {
-    icon: '/images/logo_tour2.jpg',
-    shortcut: '/images/logo_tour2.jpg',
-    apple: '/images/logo_tour2.jpg',
+    icon: '/images/logo_tour2.png',
+    shortcut: '/images/logo_tour2.png',
+    apple: '/images/logo_tour2.png',
   },
   manifest: `/favicon/site.webmanifest`,
   openGraph: {

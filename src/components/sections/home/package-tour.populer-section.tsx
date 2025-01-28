@@ -49,7 +49,7 @@ const PackageTourPupulerSection = ({
               className='xl:text-5xl sm:text-3xl text-2xl'
               variants={textVariant}
             >
-              Sunny Summer Exclusive
+              Exclusive Destination
             </motion.h3>
           </div>
           <div className='sm:col-span-3 col-span-5'>
@@ -57,10 +57,8 @@ const PackageTourPupulerSection = ({
               className='text-black font-light xl:text-2xl sm:text-xl text-lg'
               variants={textVariant}
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-              dolores, facilis a officia unde consectetur necessitatibus magni
-              vero labore magnam quia earum nisi exercitationem reprehenderit
-              sed illum explicabo. Eligendi, tempore.
+              Explore the best destination in Bali with our exclusive tour
+              package. Enjoy the beauty of Bali with our professional guide.
             </motion.h4>
           </div>
         </motion.div>

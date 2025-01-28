@@ -81,10 +81,10 @@ const WhyChooseUsSection = () => {
               <p className='text-lg'>For More Information, please</p>
               <div className='flex'>
                 <ButtonLink
-                  href='/'
+                  href='/contact-us'
                   className='btn btn-ghost rounded-2xl border-1 border-black text-black bg-transparent'
                 >
-                  Learn More
+                  Contact Us
                 </ButtonLink>
               </div>
             </div>

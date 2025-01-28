@@ -191,6 +191,7 @@ const UseCheckoutPackageTour = (id: string) => {
     handleSendMessageWa,
     totalPrice,
     setTotalPrice,
+    watch,
   };
 };
 
