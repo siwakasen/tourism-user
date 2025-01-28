@@ -49,15 +49,14 @@ const ListPackageTour = () => {
   const lastScrollY = useRef(0);
 
   const handleScroll = useCallback(() => {
-    const isBottom =
-      Math.abs(
-        window.innerHeight +
-          window.scrollY -
-          document.documentElement.scrollHeight
-      ) < 2;
+    const triggerElement = document.getElementById('triger_fetching');
+    if (!triggerElement) return;
+    if (isLoading) return;
+    const rect = triggerElement.getBoundingClientRect();
+    const isInViewport = rect.top >= 0 && rect.bottom <= window.innerHeight;
     const isScrollingDown = window.scrollY > lastScrollY.current;
 
-    if (isBottom && isScrollingDown && !isLoading) {
+    if (isInViewport && isScrollingDown && !isLoading) {
       setisFetching(true); // Memicu fetch data baru
     }
 
@@ -221,13 +220,19 @@ const ListPackageTour = () => {
                   ))}
                   {isLoading && filteredData != null ? (
                     <>
-                      <SkeletonCard />
-                      <SkeletonCard />
+                      {filteredData.length % 2 === 0 ? (
+                        <></>
+                      ) : (
+                        <>
+                          <SkeletonCard />
+                        </>
+                      )}
                     </>
                   ) : null}
                 </>
               )}
             </motion.div>
+            <div className='w-full h-[1px]' id='triger_fetching'></div>
           </motion.div>
         </div>
         <div className='h-[10rem]'></div>

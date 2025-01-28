@@ -1,5 +1,4 @@
 // utils/apiService.ts
-import { toast } from 'react-toastify';
 
 import { CheckoutPackageTourReqI } from '@/__interfaces/checkout.interface';
 import {
@@ -49,6 +48,5 @@ export const checkoutPackageTour = async (
   }
 };
 
-const handleError = (message: string, _error: unknown) => {
-  toast.error(message);
-};
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const handleError = (message: string, _error: unknown) => {};
