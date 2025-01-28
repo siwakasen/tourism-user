@@ -4,6 +4,7 @@ import ButtonLink from '@/components/common/links/ButtonLink';
 import NextImage from '@/components/NextImage';
 
 interface CarOverviewCardProps {
+  id: string;
   image: string;
   title: string;
   description: string;
@@ -15,19 +16,21 @@ const CarOverviewCard = ({
   image,
   price,
   title,
+  id,
 }: CarOverviewCardProps) => {
   return (
     <div className='flex flex-col gap-2'>
-      <NextImage
-        src={image}
-        alt='#'
-        width={600}
-        height={500}
-        fill
-        style={{ objectFit: 'cover' }}
-        sizes='(max-width: 500px) 100vw, 500px'
-        imageClassName='sm:rounded-2xl rounded-lg'
-      />
+      <div className='relative w-full h-[500px]'>
+        <NextImage
+          src={image}
+          alt='#'
+          fill
+          style={{ objectFit: 'cover' }}
+          sizes='(max-width: 500px) 100vw, 500px'
+          imageClassName='sm:rounded-2xl rounded-lg'
+        />
+      </div>
+
       <h3 className='text-black'>{title}</h3>
       <p>
         <span>{'Activity : '}</span>
@@ -35,12 +38,12 @@ const CarOverviewCard = ({
       </p>
       <div className='flex items-center mt-2 gap-6'>
         <ButtonLink
-          href='/'
-          className='btn btn-ghost rounded-2xl border-1 border-black text-black'
+          href={`/cars/${id}`}
+          className='btn  rounded-2xl border-1 border-black text-black hover:bg-black hover:text-white bg-transparent'
         >
           Book Trip
         </ButtonLink>
-        <p className='xl:text-2xl sm:text-xl text-2xl text-black'>
+        <p className='xl:text-2xl sm:text-xl text-2xl text-black '>
           {formatCurrency(price, 'USD')}
         </p>
       </div>

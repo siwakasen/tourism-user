@@ -1,17 +1,20 @@
-import Image, { ImageProps } from 'next/image';
+import { cn } from '@nextui-org/theme';
+import Image from 'next/image';
 import React from 'react';
-
-import { cn } from '@/lib/utils';
 
 type NextImageProps = {
   useSkeleton?: boolean;
+  src: string;
+  width?: number;
+  height?: number;
+  alt: string;
   className?: string;
   imageClassName?: string;
   blurClassName?: string;
   containerStyle?: React.CSSProperties;
-  alt: string;
-} & ({ width: string | number; height: string | number } | { fill?: boolean }) &
-  ImageProps;
+  fill?: boolean;
+  [key: string]: any;
+};
 
 export default function NextImage({
   useSkeleton = false,
@@ -23,7 +26,7 @@ export default function NextImage({
   imageClassName,
   blurClassName,
   containerStyle,
-  fill = false, // Default fill adalah false
+  fill = false, // Default `fill` adalah false
   ...rest
 }: NextImageProps) {
   const [status, setStatus] = React.useState<'loading' | 'complete'>(
@@ -34,24 +37,32 @@ export default function NextImage({
     <div
       style={containerStyle}
       className={cn(
-        'relative', // Posisi relative untuk layout fill
-        fill ? 'w-full h-full' : '', // Hanya berlaku jika fill true
+        'relative',
+        fill ? 'w-full h-full' : '', // Gunakan w-full dan h-full jika menggunakan fill
         className
       )}
     >
       <Image
         src={src}
-        fill={fill} // Properti fill menggantikan layout
-        width={!fill ? width : undefined} // Hanya gunakan width jika fill false
-        height={!fill ? height : undefined} // Hanya gunakan height jika fill false
-        style={{ objectFit: 'cover' }} // Properti baru menggantikan objectFit
         alt={alt}
+        fill={fill} // Properti fill menggantikan layout
+        width={!fill ? width : undefined} // Gunakan width jika fill false
+        height={!fill ? height : undefined} // Gunakan height jika fill false
+        style={{
+          objectFit: 'cover', // Atur gambar memenuhi dimensi secara proporsional
+          ...(fill
+            ? {}
+            : {
+                width: `${width}px`, // Atur width spesifik jika fill false
+                height: `${height}px`, // Atur height spesifik jika fill false
+              }),
+        }}
         className={cn(
           imageClassName,
-          status === 'loading' && 'animate-pulse',
+          status === 'loading' && 'animate-pulse', // Skeleton loading
           blurClassName
         )}
-        onLoad={() => setStatus('complete')} // Ganti onLoadingComplete dengan onLoad
+        onLoad={() => setStatus('complete')} // Update status saat gambar selesai dimuat
         {...rest}
       />
     </div>

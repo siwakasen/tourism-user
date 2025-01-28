@@ -1,23 +1,18 @@
 'use client';
 import React from 'react';
 
-interface Destination {
-  location: string;
-  activity: string;
-  rating: string;
+import { PackageTour } from '@/__interfaces/package-tour.interface';
+
+interface DestinationListProps {
+  listPackageTour: PackageTour[];
 }
 
-const destinations: Destination[] = [
-  { location: 'Santorini, Greece', activity: 'SWIMMING', rating: '5+' },
-  { location: 'Machu Picchu, Peru', activity: 'EXPLORING', rating: '4+' },
-  { location: 'Raja Ampat, Indonesia', activity: 'SNORKLING', rating: '3+' },
-  { location: 'Sydney, Australia', activity: 'SIGHTSEEING', rating: '6+' },
-];
-
-const DestinationList: React.FC = () => {
+const DestinationList: React.FC<DestinationListProps> = ({
+  listPackageTour,
+}) => {
   return (
     <div className='w-full mx-auto  text-black'>
-      {destinations.map((item, index) => (
+      {listPackageTour.map((item, index) => (
         <div
           key={index}
           className={`flex items-center justify-between p-4 border-b ${
@@ -26,16 +21,16 @@ const DestinationList: React.FC = () => {
         >
           {/* Left Section */}
           <span className='xl:text-lg text-sm font-semibold'>
-            {item.location}
+            {item.package_name}
           </span>
 
           {/* Right Section */}
           <div className='flex items-center gap-2'>
             <span className='border border-black rounded-full xl:px-3 px-1 xl:py-1 xl:text-sm text-[10px] font-medium'>
-              {item.activity}
+              {item.pickup_areas[0]}
             </span>
             <span className='border rounded-full px-3 py-1 text-sm font-medium'>
-              {item.rating}
+              {item.duration}
             </span>
           </div>
         </div>

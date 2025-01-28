@@ -1,15 +1,13 @@
+import { NextUIProvider } from '@nextui-org/react';
 import { Metadata } from 'next';
 import React from 'react';
+import { ToastContainer } from 'react-toastify';
 
 import '@/styles/globals.css';
-// !STARTERCONF This is for demo purposes, remove @/styles/colors.css import immediately
 import '@/styles/colors.css';
-
-import NavBar from '@/components/common/layouts/navbar';
 
 import { siteConfig } from '@/constant/config';
 
-// Metadata configuration
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -19,9 +17,9 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   robots: { index: true, follow: true },
   icons: {
-    icon: '/favicon/favicon.ico',
-    shortcut: '/favicon/favicon-16x16.png',
-    apple: '/favicon/apple-touch-icon.png',
+    icon: '/images/logo_tour2.jpg',
+    shortcut: '/images/logo_tour2.jpg',
+    apple: '/images/logo_tour2.jpg',
   },
   manifest: `/favicon/site.webmanifest`,
   openGraph: {
@@ -50,8 +48,10 @@ export default function RootLayout({
     <html lang='en'>
       <head />
       <body className='bg-neutral-light font-libre'>
-        <NavBar />
-        <main>{children}</main>
+        <ToastContainer />
+        <NextUIProvider>
+          <main>{children}</main>
+        </NextUIProvider>
       </body>
     </html>
   );
