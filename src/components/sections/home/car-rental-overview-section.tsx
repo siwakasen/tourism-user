@@ -4,7 +4,14 @@ import { useInView } from 'react-intersection-observer';
 
 import CarOverviewCard from '@/components/common/cards/car-overview-card';
 
-const CarRentalOverview = () => {
+import { Car } from '@/__interfaces/car-tour.interface';
+import { getImageUrl } from '@/__utils/get-image-helper';
+
+interface CarRentalOverviewProps {
+  listCar: Car[];
+}
+
+const CarRentalOverview = ({ listCar }: CarRentalOverviewProps) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true, // Animasi hanya terjadi sekali
@@ -72,10 +79,11 @@ const CarRentalOverview = () => {
         >
           <motion.div className='sm:w-1/2 w-full' variants={itemVariants}>
             <CarOverviewCard
-              image='/images/hero3_img.jpg'
-              title='Toyota Avanza'
-              price={200000}
-              description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt dolores, facilis a officia unde consectetur necessitatibus magni vero labore magnam quia earum nisi exercitationem reprehenderit sed illum explicabo. Eligendi, tempore.'
+              image={getImageUrl(`car-images/${listCar[0].car_image}`)}
+              title={listCar[0].car_name}
+              price={listCar[0].price}
+              description={listCar[0].description}
+              id={listCar[0].id}
             />
           </motion.div>
 
@@ -84,10 +92,11 @@ const CarRentalOverview = () => {
             variants={itemVariants}
           >
             <CarOverviewCard
-              image='/images/hero3_img.jpg'
-              title='Toyota Avanza'
-              price={200000}
-              description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt dolores, facilis a officia unde consectetur necessitatibus magni vero labore magnam quia earum nisi exercitationem reprehenderit sed illum explicabo. Eligendi, tempore.'
+              image={getImageUrl(`car-images/${listCar[1].car_image}`)}
+              title={listCar[1].car_name}
+              price={listCar[1].price}
+              description={listCar[1].description}
+              id={listCar[1].id}
             />
           </motion.div>
 
@@ -96,10 +105,11 @@ const CarRentalOverview = () => {
             variants={itemVariants}
           >
             <CarOverviewCard
-              image='/images/hero3_img.jpg'
-              title='Toyota Avanza'
-              price={200000}
-              description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt dolores, facilis a officia unde consectetur necessitatibus magni vero labore magnam quia earum nisi exercitationem reprehenderit sed illum explicabo. Eligendi, tempore.'
+              image={getImageUrl(`car-images/${listCar[2].car_image}`)}
+              title={listCar[2].car_name}
+              price={listCar[2].price}
+              description={listCar[2].description}
+              id={listCar[2].id}
             />
           </motion.div>
         </motion.div>

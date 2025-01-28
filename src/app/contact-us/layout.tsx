@@ -2,6 +2,7 @@
 import { Metadata } from 'next';
 
 import Footer from '@/components/common/layouts/bottombar';
+import NavBar from '@/components/common/layouts/navbar';
 
 export const metadata: Metadata = {
   title: 'Contact Us - My Website',
@@ -22,8 +23,9 @@ export default function ContactUsLayout({
   return (
     <div>
       <header />
+      <NavBar />
       <main>{children}</main>
-      <Footer backgroundColor='bg-gray-800' textColor='white' />
+      <Footer backgroundColor='bg-gray-800' />
     </div>
   );
 }

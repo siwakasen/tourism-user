@@ -1,43 +1,29 @@
 import React from 'react';
 
+import { formatCurrency } from '@/lib/helpers/currency';
+
 interface CheckoutModalProps {
   isOpen: boolean;
   onClose: () => void;
+  handleSendToWhatsApp: () => void;
+  handleSendToEmail: () => void;
   packageName: string;
-  phoneNumber: string;
-  email: string;
   date: string;
   totalAdult: number;
   totalChild: number;
+  totalPrice: number;
 }
 
 const CheckoutModal: React.FC<CheckoutModalProps> = ({
   isOpen,
   onClose,
   packageName,
-  phoneNumber,
-  email,
+  handleSendToEmail,
   date,
   totalAdult,
   totalChild,
+  totalPrice,
 }) => {
-  const totalPrice = totalAdult * 100 + totalChild * 50; // Example pricing logic
-
-  const handleSendToWhatsApp = () => {
-    const message = encodeURIComponent(
-      `Hello, I would like to book the following package:\n\nPackage: ${packageName}\nDate: ${date}\nAdults: ${totalAdult}\nChildren: ${totalChild}\nTotal Price: $${totalPrice}`
-    );
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
-  };
-
-  const handleSendToEmail = () => {
-    const subject = encodeURIComponent(`Booking for ${packageName}`);
-    const body = encodeURIComponent(
-      `Hello,\n\nI would like to book the following package:\n\nPackage: ${packageName}\nDate: ${date}\nAdults: ${totalAdult}\nChildren: ${totalChild}\nTotal Price: $${totalPrice}\n\nThank you.`
-    );
-    window.open(`mailto:${email}?subject=${subject}&body=${body}`, '_blank');
-  };
-
   if (!isOpen) return null;
 
   return (
@@ -66,8 +52,8 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({
               {totalChild}
             </p>
             <p>
-              <span className='font-medium text-gray-700'>Total Price:</span> $
-              {totalPrice}
+              <span className='font-medium text-gray-700'>Total Price:</span>
+              {formatCurrency(totalPrice, 'USD')}
             </p>
           </div>
 
@@ -77,19 +63,18 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({
             {/* Tombol Cancel */}
             <button
               type='button'
-              className='btn btn-outline btn-error'
+              className='btn btn-outline btn-error flex-grow'
               onClick={onClose}
             >
               Cancel
             </button>
-            {/* Tombol Send to WhatsApp */}
-            <button onClick={handleSendToWhatsApp} className='btn btn-success'>
-              Send Booking to WhatsApp
-            </button>
 
             {/* Tombol Send to Email */}
-            <button onClick={handleSendToEmail} className='btn btn-primary'>
-              Send Booking to Email
+            <button
+              onClick={handleSendToEmail}
+              className='btn btn-primary flex-grow'
+            >
+              Booking
             </button>
           </div>
         </div>

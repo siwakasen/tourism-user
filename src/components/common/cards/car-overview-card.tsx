@@ -4,6 +4,7 @@ import ButtonLink from '@/components/common/links/ButtonLink';
 import NextImage from '@/components/NextImage';
 
 interface CarOverviewCardProps {
+  id: string;
   image: string;
   title: string;
   description: string;
@@ -15,6 +16,7 @@ const CarOverviewCard = ({
   image,
   price,
   title,
+  id,
 }: CarOverviewCardProps) => {
   return (
     <div className='flex flex-col gap-2'>
@@ -36,8 +38,8 @@ const CarOverviewCard = ({
       </p>
       <div className='flex items-center mt-2 gap-6'>
         <ButtonLink
-          href='/'
-          className='btn  rounded-2xl border-1 border-black text-black hover:bg-black hover:text-white'
+          href={`/cars/${id}`}
+          className='btn  rounded-2xl border-1 border-black text-black hover:bg-black hover:text-white bg-transparent'
         >
           Book Trip
         </ButtonLink>

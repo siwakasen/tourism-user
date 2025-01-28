@@ -5,6 +5,8 @@ import React, { useRef } from 'react';
 
 import NextImage from '@/components/NextImage';
 
+import { getImageUrl } from '@/__utils/get-image-helper';
+
 interface CarouselSectionProps {
   images: string[];
   currentSlide: number;
@@ -45,7 +47,7 @@ const CarouselSection: React.FC<CarouselSectionProps> = ({
             style={{ height: '100%', position: 'relative' }}
           >
             <NextImage
-              src={src}
+              src={getImageUrl(`tour-images/${src ?? ''}`)}
               alt={`Slide ${index + 1}`}
               fill
               imageClassName='sm:rounded-2xl rounded-lg object-cover'

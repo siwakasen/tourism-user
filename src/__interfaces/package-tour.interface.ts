@@ -36,3 +36,8 @@ export interface PaginationI {
   page: number;
   search: string;
 }
+
+export interface GetDetailTourPackageResI {
+  data: PackageTour;
+  message: string;
+}

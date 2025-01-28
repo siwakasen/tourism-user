@@ -43,7 +43,7 @@ export default function ContactUs() {
 
   const { ref: formRef, inView: formInView } = useInView({
     triggerOnce: true,
-    threshold: 0.2,
+    threshold: 0.0,
   });
 
   return (
