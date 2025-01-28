@@ -3,7 +3,16 @@ import { useInView } from 'react-intersection-observer';
 
 import NextImage from '@/components/NextImage';
 
-const PackageTourPupulerSection = () => {
+import { PackageTour } from '@/__interfaces/package-tour.interface';
+import { getImageUrl } from '@/__utils/get-image-helper';
+
+interface PackageTourPopulerProps {
+  listTourPackage: PackageTour[];
+}
+
+const PackageTourPupulerSection = ({
+  listTourPackage,
+}: PackageTourPopulerProps) => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const textVariant = {
@@ -28,7 +37,7 @@ const PackageTourPupulerSection = () => {
           className='divider divide-solid divide-y-12 divider-start xl:text-xl sm:text-lg text-sm'
           variants={textVariant}
         >
-          Poppuler Destination 2024
+          Poppuler Destination 2025
         </motion.h2>
 
         <motion.div
@@ -59,24 +68,26 @@ const PackageTourPupulerSection = () => {
         <div className='sm:h-[6rem] h-[2rem]'></div>
 
         <motion.div
-          className='grid grid-cols-5 xl:gap-[12rem] sm:gap-[6rem] gap-[2rem]'
+          className='grid grid-cols-5 xl:gap-[8rem] sm:gap-[6rem] gap-[2rem]'
           initial='hidden'
           animate={inView ? 'visible' : 'hidden'}
         >
           {/* Gambar Pertama */}
           <motion.div
-            className='sm:col-span-2 col-span-5 flex flex-col h-[200px] w-full'
+            className='sm:col-span-2 col-span-5 flex flex-col h-[300px] w-full'
             variants={imageVariant}
           >
             <NextImage
-              src='/images/hero3_img.jpg'
+              src={getImageUrl(
+                `tour-images/${listTourPackage[0]?.images[0] ?? ''}`
+              )}
               alt='Monkey Forest'
               fill
               style={{ objectFit: 'cover' }}
               imageClassName='rounded-2xl'
             />
             <p className='mt-2 font-semibold text-black lg:text-xl text-lg'>
-              Monkey Forest
+              {listTourPackage[0].package_name}
             </p>
           </motion.div>
 
@@ -86,14 +97,16 @@ const PackageTourPupulerSection = () => {
             variants={imageVariant}
           >
             <NextImage
-              src='/images/hero3_img.jpg'
+              src={getImageUrl(
+                `tour-images/${listTourPackage[1]?.images[0] ?? ''}`
+              )}
               alt='Danau Tamblingan'
               fill
               style={{ objectFit: 'cover' }}
               imageClassName='rounded-2xl'
             />
             <p className='mt-2 font-semibold text-black lg:text-xl text-lg'>
-              Danau Tamblingan
+              {listTourPackage[1].package_name}
             </p>
           </motion.div>
         </motion.div>

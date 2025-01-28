@@ -1,8 +1,10 @@
 import { formatCurrency } from '@/lib/helpers/currency';
 
+import UnstyledLink from '@/components/common/links/UnstyledLink';
 import NextImage from '@/components/NextImage';
 
-import { PackageTour } from '@/__interfaces/package_tour.interface';
+import { PackageTour } from '@/__interfaces/package-tour.interface';
+import { getImageUrl } from '@/__utils/get-image-helper';
 
 interface SimpleTourPackageCardProps {
   packagetour: PackageTour;
@@ -10,11 +12,14 @@ interface SimpleTourPackageCardProps {
 
 const SimpleTourPackageCard = ({ packagetour }: SimpleTourPackageCardProps) => {
   return (
-    <div className='group relative max-w-[20rem] w-full shadow-md bg-white rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300'>
+    <UnstyledLink
+      href={`/packages-tour/${packagetour.id}`}
+      className='group relative max-w-[20rem] w-full shadow-md bg-white rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300'
+    >
       {/* Image Section */}
       <div className='relative h-[12rem]'>
         <NextImage
-          src={packagetour.images[0]}
+          src={getImageUrl(`tour-images/${packagetour?.images[0] ?? ''}`)}
           alt={packagetour.package_name}
           fill
           className='object-cover'
@@ -38,7 +43,7 @@ const SimpleTourPackageCard = ({ packagetour }: SimpleTourPackageCardProps) => {
           </p>
         </div>
       </div>
-    </div>
+    </UnstyledLink>
   );
 };
 

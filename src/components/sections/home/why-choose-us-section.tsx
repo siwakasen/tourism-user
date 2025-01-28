@@ -82,7 +82,7 @@ const WhyChooseUsSection = () => {
               <div className='flex'>
                 <ButtonLink
                   href='/'
-                  className='btn btn-ghost rounded-2xl border-1 border-black text-black'
+                  className='btn btn-ghost rounded-2xl border-1 border-black text-black bg-transparent'
                 >
                   Learn More
                 </ButtonLink>
@@ -101,8 +101,7 @@ const WhyChooseUsSection = () => {
             <NextImage
               src='/images/hero3_img.jpg'
               alt='Travel Image'
-              width={300}
-              height={200}
+              fill
               imageClassName='rounded-2xl'
             />
           </div>

@@ -1,99 +1,20 @@
 'use client';
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import TourPackageCard from '@/components/common/cards/package-tour-card';
 import SkeletonCard from '@/components/common/cards/skeleton-card';
 import NextImage from '@/components/NextImage';
 
-import {
-  PackageTour,
-  PaginationI,
-} from '@/__interfaces/package_tour.interface';
 import { useGetTourPackages } from '@/_hooks/package-tour';
 
-export const data: PackageTour[] = [
-  {
-    id: '8e83762a-b780-4f4c-8dfb-495cef9640bc',
-    package_name: 'Danau Tampligan',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    images: ['/images/bali_1.jpg', '/images/hero2_img.jpg'],
-    package_price: 123,
-    duration: 0.523,
-    max_group_size: 1,
-    children_price: 4,
-    itineraries: ['asdasdasd', 'asdasd,4a', 'asdasdlkn', 'asdas/d'],
-    includes: ['asdasdjnna', 'askjdasnd'],
-    pickup_areas: ['Seminyak', 'Kuta', 'Pecatu', 'Ubud', 'Denpasar', 'Airport'],
-    terms_conditions: [
-      'The tour is private tours and that means there is no other participant',
-      'Flexible time arrangement and subject to change based on your request',
-      'For the payment you may pay upon start the tour and no deposit needed',
-    ],
-    status: true,
-    created_at: '2024-12-25T08:03:40.711Z',
-    updated_at: '2024-12-25T09:10:08.665Z',
-    deleted_at: undefined,
-  },
-  {
-    id: '8e83762a-b780-4f4c-8dfb-495cef96422c',
-    package_name: 'ANKASD',
-    description: 'asdasdsd',
-    images: ['/images/hero2_img.jpg', '/images/hero1_img.jpg'],
-    package_price: 123,
-    duration: 123,
-    max_group_size: 1,
-    children_price: 4,
-    itineraries: ['asdasdasd', 'asdasd,4a', 'asdasdlkn', 'asdas/d'],
-    includes: ['asdasdjnna', 'askjdasnd'],
-    pickup_areas: ['Seminyak', 'Kuta', 'Pecatu', 'Ubud', 'Denpasar', 'Airport'],
-    terms_conditions: [
-      'The tour is private tours and that means there is no other participant',
-      'Flexible time arrangement and subject to change based on your request',
-      'For the payment you may pay upon start the tour and no deposit needed',
-    ],
-    status: true,
-    created_at: '2024-12-25T08:03:40.711Z',
-    updated_at: '2024-12-25T09:10:08.665Z',
-    deleted_at: undefined,
-  },
-  {
-    id: '8e83762a-b780-4f4c-8dfb-495cef964088',
-    package_name: 'ANKASD',
-    description: 'asdasdsd',
-    images: ['/images/hero3_img.jpg', '/images/hero4_img.jpg'],
-    package_price: 123,
-    duration: 123,
-    max_group_size: 1,
-    children_price: 4,
-    itineraries: ['asdasdasd', 'asdasd,4a', 'asdasdlkn', 'asdas/d'],
-    includes: ['asdasdjnna', 'askjdasnd'],
-    pickup_areas: ['Seminyak', 'Kuta', 'Pecatu', 'Ubud', 'Denpasar', 'Airport'],
-    terms_conditions: [
-      'The tour is private tours and that means there is no other participant',
-      'Flexible time arrangement and subject to change based on your request',
-      'For the payment you may pay upon start the tour and no deposit needed',
-    ],
-    status: true,
-    created_at: '2024-12-25T08:03:40.711Z',
-    updated_at: '2024-12-25T09:10:08.665Z',
-    deleted_at: undefined,
-  },
-];
-
 const ListPackageTour = () => {
-  const [paginationParams, setPaginationParams] = useState<PaginationI>({
-    limit: 10,
-    page: 1,
-    search: '',
-  });
+  const { data: data1, isLoading, setisFetching } = useGetTourPackages();
 
-  const { tourPackages, loading, error } = useGetTourPackages(paginationParams);
-  console.log(tourPackages);
   const [searchTerm, setSearchTerm] = useState('');
   const [filters, setFilters] = useState({
     location: '',
+    minPrice: '',
     maxPrice: '',
     maxGroupSize: '',
   });
@@ -102,9 +23,11 @@ const ListPackageTour = () => {
     setFilters((prev) => ({ ...prev, [key]: value }));
   };
 
-  const filteredData = tourPackages?.data.filter((item) => {
+  const filteredData = data1?.filter((item) => {
     const matchesLocation =
       !filters.location || item.pickup_areas.includes(filters.location);
+    const minPriceMatched =
+      !filters.minPrice || item.package_price >= parseInt(filters.minPrice);
     const matchesPrice =
       !filters.maxPrice || item.package_price <= parseInt(filters.maxPrice);
     const matchesGroupSize =
@@ -114,8 +37,40 @@ const ListPackageTour = () => {
       !searchTerm ||
       item.package_name.toLowerCase().includes(searchTerm.toLowerCase());
 
-    return matchesLocation && matchesPrice && matchesGroupSize && matchesSearch;
+    return (
+      matchesLocation &&
+      matchesPrice &&
+      matchesGroupSize &&
+      matchesSearch &&
+      minPriceMatched
+    );
   });
+
+  const lastScrollY = useRef(0);
+
+  const handleScroll = useCallback(() => {
+    const isBottom =
+      Math.abs(
+        window.innerHeight +
+          window.scrollY -
+          document.documentElement.scrollHeight
+      ) < 2;
+    const isScrollingDown = window.scrollY > lastScrollY.current;
+
+    if (isBottom && isScrollingDown && !isLoading) {
+      setisFetching(true); // Memicu fetch data baru
+    }
+
+    lastScrollY.current = window.scrollY; // Perbarui posisi scroll terakhir
+  }, [isLoading, setisFetching]);
+
+  // Menambahkan event listener untuk scroll
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll); // Bersihkan listener saat komponen unmount
+    };
+  }, [handleScroll]);
 
   return (
     <div className='flex flex-col gap-12 bg-neutral-light scroll-smooth h-full'>
@@ -180,9 +135,9 @@ const ListPackageTour = () => {
                 <input
                   type='number'
                   className='input input-bordered'
-                  placeholder='Enter max price'
+                  placeholder='Enter min price'
                   onChange={(e) =>
-                    handleFilterChange('maxPrice', e.target.value)
+                    handleFilterChange('minPrice', e.target.value)
                   }
                 />
               </label>
@@ -242,27 +197,35 @@ const ListPackageTour = () => {
               </div>
             </div>
             <motion.div
-              className='bg-gray-300 px-6 py-6 grid grid-cols-1 lg:grid-cols-2 lg:gap-12 sm:gap-6 gap-12 justify-items-center rounded-br-3xl sm:rounded-bl-none rounded-bl-3xl'
+              className='bg-gray-300 px-6 py-12 grid grid-cols-1 lg:grid-cols-2 lg:gap-12 h-full sm:gap-6 gap-12 justify-items-center rounded-br-3xl sm:rounded-bl-none rounded-bl-3xl'
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
-              {loading ? (
+              {isLoading && filteredData == null ? (
                 <>
                   <SkeletonCard />
                   <SkeletonCard />
                 </>
               ) : (
-                filteredData?.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
-                    className=' flex justify-center'
-                  >
-                    <TourPackageCard packagetour={item} />
-                  </motion.div>
-                ))
+                <>
+                  {filteredData?.map((item, index) => (
+                    <motion.div
+                      key={index}
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.2 }}
+                      className=' flex justify-center '
+                    >
+                      <TourPackageCard packagetour={item} />
+                    </motion.div>
+                  ))}
+                  {isLoading && filteredData != null ? (
+                    <>
+                      <SkeletonCard />
+                      <SkeletonCard />
+                    </>
+                  ) : null}
+                </>
               )}
             </motion.div>
           </motion.div>

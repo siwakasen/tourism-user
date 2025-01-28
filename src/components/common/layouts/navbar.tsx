@@ -12,6 +12,7 @@ export interface NavigationDataI {
 const navigationData: NavigationDataI[] = [
   { title: 'Home', href: '/' },
   { title: 'Packages Tour', href: '/packages-tour' },
+  { title: 'Cars Rental', href: '/cars' },
   { title: 'Contact Us', href: '/contact-us' },
 ];
 
@@ -32,7 +33,9 @@ const NavBar = () => {
   return (
     <nav
       className={`fixed z-50 w-full transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+        isScrolled
+          ? 'bg-white shadow-md'
+          : 'bg-gradient-to-b from-black/50 to-transparent'
       }`}
     >
       <div className='layout navbar'>
@@ -77,13 +80,22 @@ const NavBar = () => {
               ))}
             </ul>
           </div>
-          <UnstyledLink href='/'>
+          <UnstyledLink className='bg-' href='/'>
             <div
-              className={`text-xl font-bold ${
-                isScrolled ? 'text-black' : 'text-neutral-light'
+              className={`rounded-full px-6 py-1 font-extrabold text-xl ${
+                isScrolled
+                  ? 'bg-transparent text-black border border-white'
+                  : 'bg-transparent  text-white  hover:text-white'
               }`}
             >
-              <span className='text-primary'>Ride Bali</span> Explore
+              <span
+                className={`${
+                  isScrolled ? 'text-primary-600' : 'text-primary-500'
+                }  `}
+              >
+                Ride Bali
+              </span>{' '}
+              Explore
             </div>
           </UnstyledLink>
         </div>
@@ -113,8 +125,8 @@ const NavBar = () => {
             href='/package-tour'
             className={`rounded-full ${
               isScrolled
-                ? 'bg-black text-white hover:bg-black'
-                : 'bg-blend-color-burn  text-white hover:bg-black hover:text-white'
+                ? 'bg-black text-white hover:bg-black border border-white'
+                : 'bg-transparent backdrop-blur-md text-white hover:bg-black hover:text-white border border-white'
             }`}
           >
             Book Now

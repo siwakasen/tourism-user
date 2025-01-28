@@ -2,6 +2,7 @@
 import { Metadata } from 'next';
 
 import Footer from '@/components/common/layouts/bottombar';
+import NavBar from '@/components/common/layouts/navbar';
 
 export const metadata: Metadata = {
   title: 'Package Tour - My Website',
@@ -20,10 +21,13 @@ export default function PackageTourLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className='bg-white'>
-      <header />
-      <main>{children}</main>
-      <Footer backgroundColor='bg-gray-800' />
-    </div>
+    <>
+      <div className='bg-white'>
+        <header />
+        <NavBar />
+        <main>{children}</main>
+        <Footer backgroundColor='bg-gray-800' />
+      </div>
+    </>
   );
 }

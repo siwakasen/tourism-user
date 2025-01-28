@@ -28,7 +28,7 @@ const ReviewOverviewSection = () => {
           className='divider divide-solid divide-y-12 divider-start xl:text-xl sm:text-lg text-sm font-libre'
           variants={textVariant}
         >
-          Testimonial
+          Testimonials
         </motion.h2>
         <motion.div
           className='flex sm:flex-row flex-col gap-8 mt-[2rem]'
@@ -36,7 +36,7 @@ const ReviewOverviewSection = () => {
         >
           <motion.div className='flex flex-col sm:w-1/3' variants={textVariant}>
             <h1 className='xl:text-5xl sm:text-3xl text-2xl font-libre'>
-              Don't Just Take Word for it, See What Our Travelers Say
+              Hear What Our Travelers Are Saying About Our Tour Packages
             </h1>
           </motion.div>
           <motion.div className='flex sm:w-2/3 w-full' variants={textVariant}>
@@ -49,9 +49,9 @@ const ReviewOverviewSection = () => {
                 animate={inView ? 'visible' : 'hidden'}
               >
                 <ReviewCard
-                  description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt dolores, facilis a officia unde consectetur necessitatibus magni vero labore magnam quia earum nisi exercitationem reprehenderit sed illum explicabo. Eligendi, tempore.'
+                  description='The Bali Adventure package was beyond my expectations. From the pristine beaches of Nusa Dua to the cultural heart of Ubud, every moment was magical. Exploring the vibrant markets, serene rice terraces, and the iconic Uluwatu Temple was an unforgettable experience. The guides were friendly and ensured everything went smoothly.'
                   profile={{
-                    name: 'John Doe',
+                    name: 'Michael Johnson',
                     origin: 'USA',
                     image: '/images/profile1.jpg',
                   }}
@@ -65,11 +65,11 @@ const ReviewOverviewSection = () => {
                 animate={inView ? 'visible' : 'hidden'}
               >
                 <ReviewCard
-                  description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt dolores, facilis a officia unde consectetur necessitatibus magni vero labore magnam quia earum nisi exercitationem reprehenderit sed illum explicabo. Eligendi, tempore.'
+                  description='The Exotic Bali tour was perfectly curated. Visiting the breathtaking Tegallalang Rice Terraces, soaking in the natural beauty of Tegenungan Waterfall, and experiencing the tranquil atmosphere of Tanah Lot Temple were highlights of the trip. The accommodations and food were top-notch, making the journey even more enjoyable.'
                   profile={{
-                    name: 'Jane Smith',
+                    name: 'Sophia Lee',
                     origin: 'Canada',
-                    image: '/images/profile1.jpg',
+                    image: '/images/profile2.jpg',
                   }}
                 />
               </motion.div>
@@ -81,11 +81,11 @@ const ReviewOverviewSection = () => {
                 animate={inView ? 'visible' : 'hidden'}
               >
                 <ReviewCard
-                  description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt dolores, facilis a officia unde consectetur necessitatibus magni vero labore magnam quia earum nisi exercitationem reprehenderit sed illum explicabo. Eligendi, tempore.'
+                  description='Bali is truly a paradise! The Serenity Escape package gave me a perfect blend of relaxation and exploration. The sunrise hike at Mount Batur, snorkeling in the crystal-clear waters of Amed, and the cultural dance performances in Ubud were absolutely mesmerizing. A trip I’ll cherish forever!'
                   profile={{
-                    name: 'Alice Brown',
+                    name: 'Emily Carter',
                     origin: 'Australia',
-                    image: '/images/profile1.jpg',
+                    image: '/images/profile3.jpg',
                   }}
                 />
               </motion.div>

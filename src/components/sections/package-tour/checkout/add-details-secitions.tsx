@@ -58,11 +58,11 @@ const TravelerDetailsSection: React.FC = () => {
 
         {/* First Name */}
         <div>
-          <label className='font-bold' htmlFor='firstName'>
-            First Name*
+          <label className='font-bold' htmlFor='fulleName'>
+            FullName*
           </label>
           <input
-            id='firstName'
+            id='fullName'
             type='text'
             placeholder='Enter your first name'
             className='border border-gray-300 rounded-md p-2 w-full'
@@ -70,23 +70,6 @@ const TravelerDetailsSection: React.FC = () => {
           />
           {errors.firstName && (
             <p className='text-red-500 text-sm'>{errors.firstName.message}</p>
-          )}
-        </div>
-
-        {/* Last Name */}
-        <div>
-          <label className='font-bold' htmlFor='lastName'>
-            Last Name*
-          </label>
-          <input
-            id='lastName'
-            type='text'
-            placeholder='Enter your last name'
-            className='border border-gray-300 rounded-md p-2 w-full'
-            {...register('lastName', { required: 'Last name is required' })}
-          />
-          {errors.lastName && (
-            <p className='text-red-500 text-sm'>{errors.lastName.message}</p>
           )}
         </div>
 
@@ -126,104 +109,11 @@ const TravelerDetailsSection: React.FC = () => {
           )}
         </div>
 
-        {/* Date of Birth */}
         <div>
-          <label className='font-bold'>Date of Birth*</label>
-          <div className='flex gap-4'>
-            <select
-              className='border border-gray-300 rounded-md p-2 w-1/3'
-              {...register('day', { required: 'Day is required' })}
-            >
-              <option value=''>Day</option>
-              {[...Array(31)].map((_, index) => (
-                <option key={index + 1} value={index + 1}>
-                  {index + 1}
-                </option>
-              ))}
-            </select>
-            <select
-              className='border border-gray-300 rounded-md p-2 w-1/3'
-              {...register('month', { required: 'Month is required' })}
-            >
-              <option value=''>Month</option>
-              {[
-                'Jan',
-                'Feb',
-                'Mar',
-                'Apr',
-                'May',
-                'Jun',
-                'Jul',
-                'Aug',
-                'Sep',
-                'Oct',
-                'Nov',
-                'Dec',
-              ].map((month, index) => (
-                <option key={index + 1} value={index + 1}>
-                  {month}
-                </option>
-              ))}
-            </select>
-            <select
-              className='border border-gray-300 rounded-md p-2 w-1/3'
-              {...register('year', { required: 'Year is required' })}
-            >
-              <option value=''>Year</option>
-              {Array.from(
-                { length: 100 },
-                (_, index) => new Date().getFullYear() - index
-              ).map((year) => (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              ))}
-            </select>
-          </div>
+          <label className='font-bold'>Pifck Up Loactions*</label>
         </div>
-
-        {/* Gender */}
         <div>
-          <label className='font-bold'>Gender*</label>
-          <div className='flex gap-4 mt-2'>
-            {['Male', 'Female'].map((option) => (
-              <label key={option} className='flex items-center gap-2'>
-                <input
-                  type='radio'
-                  value={option}
-                  {...register('gender', { required: 'Gender is required' })}
-                  className='form-radio'
-                />
-                {option}
-              </label>
-            ))}
-          </div>
-        </div>
-
-        {/* Nationality */}
-        <div>
-          <label className='font-bold' htmlFor='nationality'>
-            Nationality*
-          </label>
-          <select
-            id='nationality'
-            className='border border-gray-300 rounded-md p-2 w-full'
-            {...register('nationality', {
-              required: 'Nationality is required',
-            })}
-          >
-            <option value=''>Select your nationality</option>
-            {['Indonesia', 'United States', 'United Kingdom', 'Australia'].map(
-              (country) => (
-                <option key={country} value={country}>
-                  {country}
-                </option>
-              )
-            )}
-          </select>
-          {errors.nationality && (
-            <p className='text-red-500 text-sm'>{errors.nationality.message}</p>
-          )}
+          <label className='font-bold'>Adtional Message</label>
         </div>
       </form>
     </section>
