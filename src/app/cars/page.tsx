@@ -227,6 +227,7 @@ const ListCars = () => {
                 </>
               )}
             </motion.div>
+            <div className='w-full h-[1px]' id='triger_fetching'></div>
           </motion.div>
         </div>
         <div className='h-[10rem]'></div>

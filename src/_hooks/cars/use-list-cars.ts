@@ -44,7 +44,7 @@ export const UseListCars = () => {
       const cars = await fetchCars(paginationParams);
 
       // Update data dengan menambahkan hasil fetch baru
-      setData((prev) => [...(prev || []), ...cars.data]);
+      setData(cars.data);
 
       // Increment halaman
       setPaginationParams((prev) => ({ ...prev, page: prev.page + 1 }));
@@ -62,9 +62,7 @@ export const UseListCars = () => {
   }, [isFetching]);
 
   useEffect(() => {
-    if (isFetching) {
-      init();
-    }
+    init();
   }, []);
 
   return {
