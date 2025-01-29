@@ -1,5 +1,4 @@
 FROM node:18-alpine
-LABEL author="asb"
 
 WORKDIR /app
 
