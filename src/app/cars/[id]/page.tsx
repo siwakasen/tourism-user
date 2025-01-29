@@ -183,6 +183,48 @@ const DetailCar = () => {
               </div>
             </motion.div>
             <div className='h-[10rem]'></div>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              className=' space-y-6 sm:hidden fixed bottom-4 z-20 layout px-1 '
+            >
+              {/* Harga dan Diskon */}
+              <div className='bg-white rounded-3xl shadow-sm p-4 border border-gray-300'>
+                <div className='flex justify-between items-start'>
+                  <div>
+                    <p className='text-sm text-gray-500'>
+                      From{' '}
+                      <span className='line-through'>
+                        {car?.price
+                          ? (car.price / 0.65).toFixed(2) // Harga asli dihitung dari diskon 35%
+                          : 0}
+                      </span>
+                    </p>
+                    <p className='text-2xl font-bold text-gray-900'>
+                      {formatCurrency(car?.price ?? 0, 'USD')}
+                    </p>
+                  </div>
+                  <div className='bg-red-100 text-red-500 text-xs font-bold px-2 py-1 rounded-full'>
+                    -35%
+                  </div>
+                </div>
+
+                <ButtonLink
+                  href={`${car?.id}/checkout`}
+                  className='w-full bg-primary text-white text-lg font-semibold py-1 rounded-full mt-4 hover:bg-blue-700 transition justify-center '
+                >
+                  Books Now
+                </ButtonLink>
+                <p className='text-sm text-gray-500 mt-4 flex items-center gap-2'>
+                  <i className='fas fa-info-circle'></i>
+                  Price based on per person
+                  <a href='#' className='text-blue-600 underline'>
+                    departure 2025
+                  </a>
+                </p>
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       )}
