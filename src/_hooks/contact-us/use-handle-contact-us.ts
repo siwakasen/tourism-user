@@ -41,7 +41,7 @@ const useContactUs = () => {
       // Simulasikan pengiriman data
       await sentContactUs(data);
 
-      toast.success('Your message has been sent successfully!');
+      toast.success('Your form has been sent successfully!');
       reset(); // Reset form setelah submit
     } finally {
       setIsSubmitting(false);

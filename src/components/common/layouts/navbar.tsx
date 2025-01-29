@@ -90,7 +90,7 @@ const NavBar = () => {
             >
               <span
                 className={`${
-                  isScrolled ? 'text-primary-600' : 'text-primary-500'
+                  isScrolled ? 'text-success-600' : 'text-success-400'
                 }  `}
               >
                 Ride Bali
@@ -108,8 +108,10 @@ const NavBar = () => {
                 <UnstyledLink
                   href={item.href}
                   className={`relative sm:text-lg text-sm font-semibold transition-all ${
-                    isScrolled ? 'text-black' : 'text-neutral-light'
-                  } hover:text-black`}
+                    isScrolled
+                      ? 'text-black '
+                      : 'text-neutral-light focus:text-neutral-light'
+                  }  `}
                 >
                   {item.title}
                   <span className='absolute left-0 bottom-0 h-0.5 w-0 bg-black transition-all duration-500 hover:w-full'></span>
@@ -125,8 +127,8 @@ const NavBar = () => {
             href='/packages-tour'
             className={`rounded-full ${
               isScrolled
-                ? 'bg-black text-white hover:bg-black border border-white'
-                : 'bg-transparent backdrop-blur-md text-white hover:bg-black hover:text-white border border-white'
+                ? 'bg-black text-white hover:bg-black border border-white active:bg-black'
+                : 'bg-transparent backdrop-blur-md text-white hover:bg-black hover:text-white border border-white active:bg-black '
             }`}
           >
             Book Now

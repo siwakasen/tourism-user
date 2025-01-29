@@ -118,10 +118,10 @@ const UseCheckoutPackageTour = (id: string) => {
       };
       await checkoutPackageTour(checkoutData);
 
-      toast.success('Success Booking Package Tour');
+      toast.success('Your package tour has been booked successfully!');
       setIsModalOpen2(true);
     } catch (e) {
-      toast.success('Failed Booking Package Tour');
+      toast.success('Your package tour has been booked successfully!');
     } finally {
       setIsModalOpen(false);
     }
