@@ -109,11 +109,11 @@ export default function ContactUs() {
 
       {/* Contact Form Section */}
       <motion.section
-        className='relative z-10'
+        className='relative z-10 '
         ref={formRef}
         variants={slideUpVariant}
         initial='hidden'
-        animate={formInView ? 'visible' : 'hidden'}
+        animate='visible'
       >
         <ContactSection />
       </motion.section>

@@ -58,15 +58,15 @@ const EndSection = () => {
       {/* Content */}
       <div className='relative z-10 layout flex flex-col justify-center items-center gap-8 py-16 text-center'>
         <motion.span
-          className='divider divide-solid divide-y-12 divider-start xl:text-xl sm:text-lg text-sm font-libre text-gray-600'
+          className='divider divide-solid divide-y-12 divider-start xl:text-xl sm:text-lg text-sm font-libre text-slate-700'
           variants={fadeUpVariant}
           initial='hidden'
           animate={inView ? 'visible' : 'hidden'}
         >
-          Feature Destination
+          Begin your journey
         </motion.span>
         <motion.h2
-          className='xl:text-6xl sm:text-5xl text-3xl sm:px-[15%] px-[5%] text-black mt-[8rem]'
+          className='xl:text-6xl sm:text-5xl text-3xl sm:px-[15%] px-[5%] text-slate-900 '
           variants={fadeUpVariant}
           initial='hidden'
           animate={inView ? 'visible' : 'hidden'}
@@ -74,15 +74,13 @@ const EndSection = () => {
           Let's Just Get Travel Around The World
         </motion.h2>
         <motion.p
-          className='xl:px-[25%] sm:px-[15%] px-[5%] text-gray-500 sm:text-lg text-sm'
+          className='hidden xl:block xl:px-[25%] sm:px-[15%] px-[5%] text-slate-900 sm:text-lg text-sm shadow-slate-600'
           variants={fadeUpVariant}
           initial='hidden'
           animate={inView ? 'visible' : 'hidden'}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Necessitatibus dolorum fugiat vel deserunt neque, accusantium
-          dignissimos tempore similique quam iure libero perferendis eaque
-          voluptatem ipsam impedit ipsa aut earum ad.
+          Ready to turn your dreams into reality? Get in touch with us today and
+          let's start planning your next adventure!
         </motion.p>
         <motion.div
           variants={fadeUpVariant}
@@ -90,8 +88,8 @@ const EndSection = () => {
           animate={inView ? 'visible' : 'hidden'}
         >
           <ButtonLink
-            href='/'
-            className='btn btn-ghost rounded-2xl border-1 border-black bg-black px-6 text-white'
+            href='/packages-tour'
+            className='hover:bg-green-800 shadow-lg font-bold btn btn-ghost rounded-2xl border-1 border-black bg-black px-6 text-white'
           >
             Join the Trip
           </ButtonLink>

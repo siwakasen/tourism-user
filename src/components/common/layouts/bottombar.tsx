@@ -31,7 +31,7 @@ const Footer = ({
               className='mb-4'
             />
           </UnstyledLink>
-          <p className='text-sm text-neutral-400'>
+          <p className='text-sm text-neutral-200'>
             Discover the world with us. Explore destinations, create memories,
             and make every trip unforgettable.
           </p>

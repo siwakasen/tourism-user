@@ -79,7 +79,7 @@ const HeroSection = () => {
             animate='visible'
           >
             <ButtonLink
-              href='/'
+              href='/packages-tour'
               className='btn btn-ghost hover:bg-black hover:text-white rounded-full border-1 border-white text-white bg-transparent backdrop-blur-md'
             >
               Book Now

@@ -6,64 +6,130 @@ const ContactInfoSection: React.FC = () => {
     {
       id: 1,
       icon: <FaPhoneAlt className='text-2xl text-primary' />,
-      title: '+(654) 6455 654',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis pulvinar.',
-      link: '#',
+      title: '+6281990104720',
+      description: 'Admin Ride Bali Explore',
+      link: 'https://api.whatsapp.com/send/?phone=6281990104720&text=Hello%2C%20I%20want%20to%20ask%20about%20your%20services.&type=phone_number&app_absent=0',
     },
     {
       id: 2,
       icon: <FaEnvelope className='text-2xl text-white' />,
-      title: 'mail@txtils.com',
+      title: 'ridebaliexplore@gmail.com',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis pulvinar.',
-      link: '#',
+        'Send us an email for any inquiries or questions you may have.',
+      link: 'mailto:ridebaliexplore@gmail.com',
     },
     {
       id: 3,
       icon: <FaMapMarkerAlt className='text-2xl text-primary' />,
-      title: 'London Eye, UK',
+      title: 'Gianyar, Bali, Indonesia',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis pulvinar.',
-      link: '#',
+        'Visit our office in Gianyar, Bali, Indonesia for more information.',
+      link: 'https://maps.app.goo.gl/epSR4s1EFZZ78Yt76',
     },
   ];
 
   return (
     <section className='py-12 '>
       <div className='layout grid grid-cols-1 md:grid-cols-3 gap-8 '>
-        {contactInfos.map((info) => (
+        <div
+          key={contactInfos[0].id}
+          className={`px-6 py-12 rounded-xl shadow-md hover:shadow-lg transition text-center ${
+            contactInfos[0].id === 2 ? 'bg-gray-800 text-white' : 'bg-white'
+          }`}
+        >
           <div
-            key={info.id}
-            className={`px-6 py-12 rounded-xl shadow-md hover:shadow-lg transition text-center ${
-              info.id === 2 ? 'bg-gray-800 text-white' : 'bg-white'
+            className={`flex justify-center mb-4 ${
+              contactInfos[0].id === 2 ? 'text-white' : ''
             }`}
           >
-            <div
-              className={`flex justify-center mb-4 ${
-                info.id === 2 ? 'text-white' : ''
-              }`}
-            >
-              {info.icon}
-            </div>
-            <h3 className='text-xl font-semibold mb-2'>{info.title}</h3>
-            <p
-              className={`text-sm mb-4 ${
-                info.id === 2 ? 'text-gray-300' : 'text-gray-600'
-              }`}
-            >
-              {info.description}
-            </p>
-            <a
-              href={info.link}
-              className={`text-sm font-medium hover:underline ${
-                info.id === 2 ? 'text-white' : 'text-primary'
-              }`}
-            >
-              Learn More &rarr;
-            </a>
+            {contactInfos[0].icon}
           </div>
-        ))}
+          <h3 className='text-xl font-semibold mb-2'>
+            {contactInfos[0].title}
+          </h3>
+          <p
+            className={`text-sm mb-4 ${
+              contactInfos[0].id === 2 ? 'text-gray-300' : 'text-gray-600'
+            }`}
+          >
+            {contactInfos[0].description}
+          </p>
+          <a
+            href={contactInfos[0].link}
+            target='_blank'
+            className={`text-sm font-medium hover:underline ${
+              contactInfos[0].id === 2 ? 'text-white' : 'text-primary'
+            }`}
+          >
+            Contact via Whatsapp &rarr;
+          </a>
+        </div>
+        <div
+          key={contactInfos[1].id}
+          className={`px-6 py-12 rounded-xl shadow-md hover:shadow-lg transition text-center ${
+            contactInfos[1].id === 2 ? 'bg-gray-800 text-white' : 'bg-white'
+          }`}
+        >
+          <div
+            className={`flex justify-center mb-4 ${
+              contactInfos[1].id === 2 ? 'text-white' : ''
+            }`}
+          >
+            {contactInfos[1].icon}
+          </div>
+          <h3 className='text-xl font-semibold mb-2'>
+            {contactInfos[1].title}
+          </h3>
+          <p
+            className={`text-sm mb-4 ${
+              contactInfos[1].id === 2 ? 'text-gray-300' : 'text-gray-600'
+            }`}
+          >
+            {contactInfos[1].description}
+          </p>
+          <a
+            href={contactInfos[1].link}
+            target='_blank'
+            className={`text-sm font-medium hover:underline ${
+              contactInfos[1].id === 2 ? 'text-white' : 'text-primary'
+            }`}
+          >
+            Contact email &rarr;
+          </a>
+        </div>
+        <div
+          key={contactInfos[2].id}
+          className={`px-6 py-12 rounded-xl shadow-md hover:shadow-lg transition text-center ${
+            contactInfos[2].id === 2 ? 'bg-gray-800 text-white' : 'bg-white'
+          }`}
+        >
+          <div
+            className={`flex justify-center mb-4 ${
+              contactInfos[2].id === 2 ? 'text-white' : ''
+            }`}
+          >
+            {contactInfos[2].icon}
+          </div>
+          <h3 className='text-xl font-semibold mb-2'>
+            {contactInfos[2].title}
+          </h3>
+          <p
+            className={`text-sm mb-4 ${
+              contactInfos[2].id === 2 ? 'text-gray-300' : 'text-gray-600'
+            }`}
+          >
+            {contactInfos[2].description}
+          </p>
+          <a
+            href={contactInfos[2].link}
+            target='_blank'
+            className={`text-sm font-medium hover:underline ${
+              contactInfos[2].id === 2 ? 'text-white' : 'text-primary'
+            }`}
+          >
+            Our Office &rarr;
+          </a>
+        </div>
       </div>
     </section>
   );
