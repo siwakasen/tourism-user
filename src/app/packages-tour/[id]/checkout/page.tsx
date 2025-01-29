@@ -46,6 +46,11 @@ const CheckoutPage = () => {
     handleSendMessageWa,
     setTotalPrice,
     totalPrice,
+    maxAdult,
+    maxChildren,
+    setMaxAdult,
+    setMaxChildren,
+    maxGroupSize,
   } = UseCheckoutPackageTour(Array.isArray(id) ? id[0] : id);
   // Refs for Animations
   const refDetails = useRef(null);
@@ -152,12 +157,14 @@ const CheckoutPage = () => {
                     <p className='text-lg font-bold'>Adults</p>
                     <NumberInput
                       min={1}
-                      max={packageTour?.max_group_size ?? 0}
+                      max={maxAdult}
                       defaultValue={1}
                       setValue={setValue}
                       name='adult_count'
                       error={errors.adult_count}
                       onChange={() => {
+                        setMaxAdult(maxGroupSize - formData('children_count'));
+                        setMaxChildren(maxGroupSize - formData('adult_count'));
                         setTotalPrice(calculateTotalPrice());
                       }}
                     />
@@ -166,12 +173,14 @@ const CheckoutPage = () => {
                     <p className='text-lg font-bold'>Children</p>
                     <NumberInput
                       min={0}
-                      max={packageTour?.max_group_size ?? 0}
+                      max={maxChildren}
                       defaultValue={0}
                       setValue={setValue}
                       name='children_count'
                       error={errors.children_count}
                       onChange={() => {
+                        setMaxChildren(maxGroupSize - formData('adult_count'));
+                        setMaxAdult(maxGroupSize - formData('children_count'));
                         setTotalPrice(calculateTotalPrice());
                       }}
                     />

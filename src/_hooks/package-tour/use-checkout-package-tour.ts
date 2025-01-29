@@ -73,8 +73,11 @@ const UseCheckoutPackageTour = (id: string) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpen2, setIsModalOpen2] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [maxAdult, setMaxAdult] = useState(1);
+  const [maxChildren, setMaxChildren] = useState(0);
   const [listTourPackages, setListTourPackages] =
     useState<ListTourPackageResI>();
+  const [maxGroupSize, setMaxGroupSize] = useState(0);
 
   const fetchDetailPackageTour = async () => {
     try {
@@ -88,6 +91,11 @@ const UseCheckoutPackageTour = (id: string) => {
       setData(tourPackage.data);
       setTotalPrice(tourPackage.data.package_price ?? 0);
       setListTourPackages(dataListTourPackage);
+      setMaxGroupSize(tourPackage.data.max_group_size);
+      if (tourPackage.data) {
+        setMaxAdult(tourPackage.data.max_group_size);
+        setMaxChildren(tourPackage.data.max_group_size - 1);
+      }
     } finally {
       setIsLoading(false);
     }
@@ -191,6 +199,12 @@ const UseCheckoutPackageTour = (id: string) => {
     handleSendMessageWa,
     totalPrice,
     setTotalPrice,
+    maxAdult,
+    maxChildren,
+    setMaxAdult,
+    setMaxChildren,
+    maxGroupSize,
+    setMaxGroupSize,
   };
 };
 
