@@ -60,6 +60,24 @@ const NavBar = () => {
                 />
               </svg>
             </div>
+
+            <ul
+              tabIndex={0}
+              className={`menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 ${
+                isScrolled ? 'text-black' : 'text-neutral-light'
+              }`}
+            >
+              {navigationData.map((item) => (
+                <li key={item.href}>
+                  <UnstyledLink
+                    className='hover:underline text-black'
+                    href={item.href}
+                  >
+                    {item.title}
+                  </UnstyledLink>
+                </li>
+              ))}
+            </ul>
           </div>
           <UnstyledLink href='/'>
             <div
@@ -82,7 +100,7 @@ const NavBar = () => {
         </div>
 
         {/* Navbar Center - Stays in the Middle */}
-        <div className='navbar-center absolute left-1/2 -translate-x-1/2 hidden lg:flex'>
+        <div className='navbar-center absolute  hidden lg:flex w-full justify-center'>
           <ul className='menu menu-horizontal px-1 gap-4'>
             {navigationData.map((item) => (
               <li key={item.href}>
