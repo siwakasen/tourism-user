@@ -11,16 +11,16 @@ export default function ContactSection() {
 
   return (
     <section className='relative z-10 -top-[12rem]'>
-      <div className='shadow-2xl bg-neutral-light flex flex-row layout px-0 rounded-2xl'>
-        <div className='w-1/2 rounded-2xl'>
+      <div className='shadow-2xl bg-neutral-light flex flex-col lg:flex-row layout px-0 rounded-2xl'>
+        <div className='relative h-40 lg:h-auto lg:w-1/2  overflow-hidden'>
           <NextImage
-            imageClassName='rounded-l-2xl'
+            imageClassName='absolute inset-0 w-full h-full object-cover rounded-t-2xl lg:rounded-tr-none lg:rounded-l-2xl'
             src='/images/bali_1.jpg'
             alt='Hero Section'
             fill
           />
         </div>
-        <div className='w-1/2 px-12 py-12 flex flex-col justify-center'>
+        <div className='lg:w-1/2 px-12 py-12 flex flex-col justify-center'>
           <h2 className='text-2xl font-semibold mb-4'>Contact Us</h2>
           <form onSubmit={handleSubmit} className='space-y-4'>
             {/* Input Name */}
