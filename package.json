@@ -14,8 +14,7 @@
     "test": "jest",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
-    "postbuild": "next-sitemap --config next-sitemap.config.js",
-    "prepare": "husky install"
+    "postbuild": "next-sitemap --config next-sitemap.config.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -43,6 +42,7 @@
     "react-redux": "^9.2.0",
     "react-select": "^5.10.0",
     "react-toastify": "^11.0.3",
+    "sharp": "^0.33.5",
     "skeleton": "^0.1.2",
     "tailwind-merge": "^2.5.4",
     "yup": "^1.6.1",
