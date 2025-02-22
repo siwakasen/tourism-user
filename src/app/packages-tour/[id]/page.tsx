@@ -257,7 +257,7 @@ const DetailPackageTour = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
-              className=' space-y-6 sm:hidden fixed bottom-4 z-20 layout px-1 '
+              className=' space-y-6 sm:hidden sticky  bottom-4 z-20  px-1 '
             >
               {/* Harga dan Diskon */}
               <div className='bg-white rounded-3xl shadow-sm p-4 border border-gray-300'>

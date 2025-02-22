@@ -1,18 +1,14 @@
+'use client';
 import NextImage from '@/components/NextImage';
 
+import { Testimonial } from '@/__interfaces/testimonial.interface';
+import { getImageTestimonial, getImageUrl } from '@/__utils/get-image-helper';
+
 interface ReviewCardProps {
-  description: string;
-  profile: {
-    name: string;
-    origin: string;
-    image: string;
-  };
+  testimonial: Testimonial;
 }
 
-const ReviewCard = ({
-  description,
-  profile: { name, origin, image },
-}: ReviewCardProps) => {
+const ReviewCard = ({ testimonial }: ReviewCardProps) => {
   return (
     <div className='flex flex-col bg-gray-200 sm:p-6 p-4 gap-6 sm:rounded-2xl rounded-xl'>
       <svg
@@ -29,19 +25,21 @@ const ReviewCard = ({
           fill='currentColor'
         ></path>
       </svg>
-      <p className='text-black'>{description}</p>
+      <p className='text-black'>{testimonial.message}</p>
       <div className='flex items-center gap-6'>
         <NextImage
-          src={image}
-          alt={`${name}'s profile picture`}
+          src={getImageTestimonial(
+            `testimonials-images/${testimonial?.image ?? ''}`
+          )}
+          alt={`${testimonial.name}'s profile picture`}
           width={100}
           height={100}
           sizes='(max-width: 100px) 100vw, 100px'
           imageClassName='rounded-full'
         />
         <div className='flex flex-col'>
-          <p className='text-black'>{name}</p>
-          <p>{origin}</p>
+          <p className='text-black'>{testimonial.name}</p>
+          <p>{testimonial.country}</p>
         </div>
       </div>
     </div>
