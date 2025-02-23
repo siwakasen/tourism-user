@@ -22,6 +22,14 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'tour.cashtrack.my.id',
       },
+      {
+        protocol: 'https',
+        hostname: 'testi.cashtrack.my.id',
+      },
+      {
+        protocol: 'https',
+        hostname: 'drivers.cashtrack.my.id',
+      },
     ],
   },
 

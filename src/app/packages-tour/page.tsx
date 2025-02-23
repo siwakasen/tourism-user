@@ -196,7 +196,7 @@ const ListPackageTour = () => {
               </div>
             </div>
             <motion.div
-              className='bg-gray-300 px-6 py-12 grid grid-cols-1 lg:grid-cols-2 lg:gap-12 h-full sm:gap-6 gap-12 justify-items-center rounded-br-3xl sm:rounded-bl-none rounded-bl-3xl'
+              className='bg-gray-300 px-6 py-12 grid grid-cols-1 lg:grid-cols-2 lg:gap-12 h-full sm:gap-8 gap-12 justify-items-center rounded-br-3xl sm:rounded-bl-none rounded-bl-3xl'
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}

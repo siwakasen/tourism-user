@@ -7,7 +7,7 @@ import {
   PaginationI,
 } from '@/__interfaces/package-tour.interface';
 
-import api from '../api';
+import { api } from '../api';
 
 export const fetchTourPackages = async (
   pagination: PaginationI
