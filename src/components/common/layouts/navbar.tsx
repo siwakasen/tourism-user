@@ -38,9 +38,9 @@ const NavBar = () => {
           : 'bg-gradient-to-b from-black/50 to-transparent'
       }`}
     >
-      <div className='layout navbar'>
-        {/* Navbar Start */}
-        <div className='navbar-start flex items-center'>
+      <div className='layout navbar flex items-center relative'>
+        {/* Navbar Start - Expands Fully */}
+        <div className='navbar-start flex items-center flex-1'>
           <div className='dropdown'>
             <div tabIndex={0} role='button' className='btn btn-ghost lg:hidden'>
               <svg
@@ -60,6 +60,7 @@ const NavBar = () => {
                 />
               </svg>
             </div>
+
             <ul
               tabIndex={0}
               className={`menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 ${
@@ -69,9 +70,7 @@ const NavBar = () => {
               {navigationData.map((item) => (
                 <li key={item.href}>
                   <UnstyledLink
-                    className={`hover:underline ${
-                      isScrolled ? 'text-black' : 'text-neutral-light'
-                    }`}
+                    className='hover:underline text-black'
                     href={item.href}
                   >
                     {item.title}
@@ -80,18 +79,18 @@ const NavBar = () => {
               ))}
             </ul>
           </div>
-          <UnstyledLink className='bg-' href='/'>
+          <UnstyledLink href='/'>
             <div
-              className={`rounded-full px-6 py-1 font-extrabold text-xl ${
+              className={`rounded-full ps-6 pe-1 py-1 font-extrabold text-xl ${
                 isScrolled
                   ? 'bg-transparent text-black border border-white'
-                  : 'bg-transparent  text-white  hover:text-white'
+                  : 'bg-transparent text-white hover:text-white'
               }`}
             >
               <span
                 className={`${
-                  isScrolled ? 'text-primary-600' : 'text-primary-500'
-                }  `}
+                  isScrolled ? 'text-success-600' : 'text-success-400'
+                }`}
               >
                 Ride Bali
               </span>{' '}
@@ -100,16 +99,18 @@ const NavBar = () => {
           </UnstyledLink>
         </div>
 
-        {/* Navbar Center */}
-        <div className='navbar-center hidden lg:flex'>
+        {/* Navbar Center - Stays in the Middle */}
+        <div className='navbar-center absolute  hidden lg:flex w-full justify-center'>
           <ul className='menu menu-horizontal px-1 gap-4'>
             {navigationData.map((item) => (
               <li key={item.href}>
                 <UnstyledLink
                   href={item.href}
                   className={`relative sm:text-lg text-sm font-semibold transition-all ${
-                    isScrolled ? 'text-black' : 'text-neutral-light'
-                  } hover:text-black`}
+                    isScrolled
+                      ? 'text-black'
+                      : 'text-neutral-light focus:text-neutral-light'
+                  }`}
                 >
                   {item.title}
                   <span className='absolute left-0 bottom-0 h-0.5 w-0 bg-black transition-all duration-500 hover:w-full'></span>
@@ -119,14 +120,14 @@ const NavBar = () => {
           </ul>
         </div>
 
-        {/* Navbar End */}
-        <div className='navbar-end'>
+        {/* Navbar End - Stays Compact */}
+        <div className='navbar-end flex-shrink-0'>
           <ButtonLink
             href='/packages-tour'
             className={`rounded-full ${
               isScrolled
-                ? 'bg-black text-white hover:bg-black border border-white'
-                : 'bg-transparent backdrop-blur-md text-white hover:bg-black hover:text-white border border-white'
+                ? 'bg-black text-white hover:bg-black border border-white active:bg-black'
+                : 'bg-transparent backdrop-blur-md text-white hover:bg-black hover:text-white border border-white active:bg-black'
             }`}
           >
             Book Now

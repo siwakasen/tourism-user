@@ -6,7 +6,7 @@ import {
 } from '@/__interfaces/car-tour.interface';
 import { CheckoutCarsReqI } from '@/__interfaces/checkout.interface';
 
-import api from '../api';
+import { api } from '../api';
 
 export const fetchCars = async (
   pagination: PaginationI

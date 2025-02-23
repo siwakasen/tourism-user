@@ -6,10 +6,11 @@ import '@/lib/env';
 
 import NavBar from '@/components/common/layouts/navbar';
 import CarRentalOverview from '@/components/sections/home/car-rental-overview-section';
+import DriverOverviewSection from '@/components/sections/home/driver-overview-section';
 import EndSection from '@/components/sections/home/end-section';
 import HeroSection from '@/components/sections/home/hero-section';
+import OwnerSection from '@/components/sections/home/owner-section';
 import PackageTourPupulerSection from '@/components/sections/home/package-tour.populer-section';
-import PackageTourOverviewSection from '@/components/sections/home/package-tour-overview-section';
 import ReviewOverviewSection from '@/components/sections/home/review-overview-section';
 import WhyChooseUsSection from '@/components/sections/home/why-choose-us-section';
 
@@ -46,7 +47,7 @@ export default function HomePage() {
           ></motion.div>
         ) : (
           <>
-            <PackageTourOverviewSection
+            <PackageTourPupulerSection
               listTourPackage={listTourPackages?.data ?? []}
             />
             <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
@@ -56,7 +57,14 @@ export default function HomePage() {
             <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
             <WhyChooseUsSection />
             <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
+            <WhyChooseUsSection />
+            <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
+
             <CarRentalOverview listCar={listCars?.data ?? []} />
+            <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
+            <OwnerSection />
+            <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
+            <DriverOverviewSection />
             <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
             <ReviewOverviewSection />
             <div className='xlh-[20rem] sm:h-[12rem] h-[6rem]'></div>

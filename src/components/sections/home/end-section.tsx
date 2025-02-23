@@ -89,7 +89,7 @@ const EndSection = () => {
         >
           <ButtonLink
             href='/packages-tour'
-            className='hover:bg-green-800 shadow-lg font-bold btn btn-ghost rounded-2xl border-1 border-black bg-black px-6 text-white'
+            className='hover:bg-green-800 active:bg-green-800 shadow-lg font-bold btn btn-ghost rounded-2xl border-1 border-black bg-black px-6 text-white'
           >
             Join the Trip
           </ButtonLink>

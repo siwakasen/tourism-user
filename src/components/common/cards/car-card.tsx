@@ -11,7 +11,7 @@ interface CarCardProps {
 
 const CarCard = ({ car }: CarCardProps) => {
   return (
-    <div className='group relative card max-w-[90%] xl:w-[30rem] lg:w-[22rem] sm:w-[28rem] w-[90%] shadow-xl  bg-neutral-light sm:h-[38rem] h-[32rem] rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 m-0'>
+    <div className='group relative card 2xl:max-w-[90%] xl:max-w-[75%] sm:max-w-[85%] max-w-[95%] xl:w-[30rem] lg:w-[22rem] sm:w-[28rem] w-[90%] shadow-xl  bg-neutral-light sm:h-[32rem] h-[28rem] rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 m-0'>
       {/* Image Section */}
       <div className='relative h-[40%] '>
         <NextImage
@@ -41,7 +41,7 @@ const CarCard = ({ car }: CarCardProps) => {
               <li>Brand: {car.brand.brand_name}</li>
               <li>Min Capacity: {car.min_person}</li>
               <li>Max Capacity: {car.max_person}</li>
-              {car.includes.slice(0, 4).map((item, index) => (
+              {car.includes.slice(0, 3).map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>

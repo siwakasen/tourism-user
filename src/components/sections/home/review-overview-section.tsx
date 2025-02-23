@@ -1,10 +1,25 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useState } from 'react';
 
 import ReviewCard from '@/components/common/cards/review-card';
+import UseListTestimonial from '@/_hooks/testimonials/testimonial';
 
 const ReviewOverviewSection = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { testimonials, isLoading } = UseListTestimonial();
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const itemsPerPage = 3;
+
+  // Fungsi untuk berpindah ke testimonial berikutnya
+  const handleNext = () => {
+    if (currentIndex + itemsPerPage < testimonials.length) {
+      setCurrentIndex(currentIndex + itemsPerPage);
+    } else {
+      setCurrentIndex(0); // Reset ke awal jika sudah di akhir
+    }
+  };
 
   const textVariant = {
     hidden: { opacity: 0, y: 50 },
@@ -39,57 +54,40 @@ const ReviewOverviewSection = () => {
               Hear What Our Travelers Are Saying About Our Tour Packages
             </h1>
           </motion.div>
-          <motion.div className='flex sm:w-2/3 w-full' variants={textVariant}>
+          <motion.div
+            className='flex sm:w-2/3 w-full flex-col'
+            variants={textVariant}
+          >
             <div className='flex xl:flex-row flex-col gap-6'>
-              {/* Card 1 */}
-              <motion.div
-                className='w-full'
-                variants={cardVariant}
-                initial='hidden'
-                animate={inView ? 'visible' : 'hidden'}
-              >
-                <ReviewCard
-                  description='The Bali Adventure package was beyond my expectations. From the pristine beaches of Nusa Dua to the cultural heart of Ubud, every moment was magical. Exploring the vibrant markets, serene rice terraces, and the iconic Uluwatu Temple was an unforgettable experience. The guides were friendly and ensured everything went smoothly.'
-                  profile={{
-                    name: 'Michael Johnson',
-                    origin: 'USA',
-                    image: '/images/profile1.jpg',
-                  }}
-                />
-              </motion.div>
-              {/* Card 2 */}
-              <motion.div
-                className='w-full'
-                variants={cardVariant}
-                initial='hidden'
-                animate={inView ? 'visible' : 'hidden'}
-              >
-                <ReviewCard
-                  description='The Exotic Bali tour was perfectly curated. Visiting the breathtaking Tegallalang Rice Terraces, soaking in the natural beauty of Tegenungan Waterfall, and experiencing the tranquil atmosphere of Tanah Lot Temple were highlights of the trip. The accommodations and food were top-notch, making the journey even more enjoyable.'
-                  profile={{
-                    name: 'Sophia Lee',
-                    origin: 'Canada',
-                    image: '/images/profile2.jpg',
-                  }}
-                />
-              </motion.div>
-              {/* Card 3 */}
-              <motion.div
-                className='w-full'
-                variants={cardVariant}
-                initial='hidden'
-                animate={inView ? 'visible' : 'hidden'}
-              >
-                <ReviewCard
-                  description='Bali is truly a paradise! The Serenity Escape package gave me a perfect blend of relaxation and exploration. The sunrise hike at Mount Batur, snorkeling in the crystal-clear waters of Amed, and the cultural dance performances in Ubud were absolutely mesmerizing. A trip I’ll cherish forever!'
-                  profile={{
-                    name: 'Emily Carter',
-                    origin: 'Australia',
-                    image: '/images/profile3.jpg',
-                  }}
-                />
-              </motion.div>
+              {testimonials
+                .slice(currentIndex, currentIndex + itemsPerPage)
+                .map((testimonial) => (
+                  <>
+                    {' '}
+                    <motion.div
+                      key={testimonial.id}
+                      className='sm:max-w-full xl:max-w-1/3'
+                      variants={cardVariant}
+                      initial='hidden'
+                      animate={inView ? 'visible' : 'hidden'}
+                    >
+                      <ReviewCard testimonial={testimonial} />
+                    </motion.div>
+                  </>
+                ))}
             </div>
+
+            {/* Tombol Next */}
+            {testimonials.length > itemsPerPage && (
+              <div className='flex justify-center mt-6'>
+                <button
+                  onClick={handleNext}
+                  className='px-6 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition'
+                >
+                  Next
+                </button>
+              </div>
+            )}
           </motion.div>
         </motion.div>
       </motion.div>

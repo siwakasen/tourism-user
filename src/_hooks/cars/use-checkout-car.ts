@@ -104,10 +104,10 @@ const UseCheckoutCar = (id: string) => {
         additional_message: data.additional_message,
       };
       await checkoutCars(checkoutData);
-      toast.success('Success Booking Car Rental');
+      toast.success('Your car rental has been booked successfully!');
       setIsModalOpen2(true);
     } catch (e) {
-      toast.error('Failed Booking Car Rental');
+      toast.error('Your car rental has been failed to book!');
     } finally {
       setIsModalOpen(false);
     }
