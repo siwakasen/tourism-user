@@ -25,7 +25,9 @@ const OwnerSection = () => {
       </motion.div>
 
       <motion.div>
-        <h1 className='text-5xl font-bold text-center mt-6'>Our Great Team</h1>
+        <h1 className='sm:text-5xl text-3xl font-bold text-center mt-6'>
+          Our Great Team
+        </h1>
       </motion.div>
 
       <div className='relative w-full flex flex-col md:flex-row items-center justify-center gap-8 md:gap-[6rem] mt-12'>
