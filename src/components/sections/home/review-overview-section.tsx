@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 import ReviewCard from '@/components/common/cards/review-card';
+
 import UseListTestimonial from '@/_hooks/testimonials/testimonial';
 
 const ReviewOverviewSection = () => {
@@ -66,7 +67,7 @@ const ReviewOverviewSection = () => {
                     {' '}
                     <motion.div
                       key={testimonial.id}
-                      className='sm:max-w-full xl:max-w-1/3'
+                      className='sm:w-full xl:w-1/3'
                       variants={cardVariant}
                       initial='hidden'
                       animate={inView ? 'visible' : 'hidden'}

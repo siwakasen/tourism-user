@@ -95,7 +95,7 @@ const DriverOverviewSection = () => {
           <div className='text-center text-gray-500'>Loading drivers...</div>
         ) : (
           <motion.div
-            className='flex flex-wrap justify-center gap-6'
+            className='flex flex-wrap justify-center sm:gap-6 gap-6'
             variants={containerVariants}
             initial='hidden'
             animate={controls}
@@ -103,7 +103,7 @@ const DriverOverviewSection = () => {
             {drivers.map((driver) => (
               <motion.div
                 key={driver.id}
-                className='w-48'
+                className='md:w-48 sm:w-38 w-32 '
                 variants={itemVariants}
               >
                 <DriverCard driver={driver} />
