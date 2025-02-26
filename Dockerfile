@@ -4,7 +4,7 @@ FROM node:18
 WORKDIR /app
 COPY . .
 RUN npm install -g pnpm
-RUN pnpm install --production
+RUN pnpm install
 RUN pnpm build
 
 # Install bash
