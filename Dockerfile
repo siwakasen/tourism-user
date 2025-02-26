@@ -5,6 +5,13 @@ WORKDIR /app
 COPY . .
 RUN npm install -g pnpm
 RUN pnpm install
+
+
+#build with env
+ARG NEXT_PUBLIC_API_URL
+ARG NEXT_PUBLIC_API_URL_DRIVER
+ARG NEXT_PUBLIC_API_URL_TESTI
+
 RUN pnpm build
 
 # Stage 2: Final runtime image
