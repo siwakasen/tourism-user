@@ -8,7 +8,7 @@ import UseListTestimonial from '@/_hooks/testimonials/testimonial';
 
 const ReviewOverviewSection = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
-  const { testimonials, isLoading } = UseListTestimonial();
+  const { testimonials } = UseListTestimonial();
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = 3;
