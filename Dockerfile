@@ -1,7 +1,5 @@
 # Stage 1: Build dependencies
-FROM node:18-alpine
-RUN apk add --no-cache bash
-ENV SHELL=/bin/bash
+FROM node:18-alpine AS builder
 
 WORKDIR /app
 COPY . .
@@ -9,8 +7,22 @@ RUN npm install -g pnpm
 RUN pnpm install
 RUN pnpm build
 
-# Install bash
+# Stage 2: Final runtime image
+FROM node:18-alpine
 
+# Install bash
+RUN apk add --no-cache bash
+
+ENV SHELL=/bin/bash
+
+WORKDIR /appg
+COPY --from=builder app/node_modules ./node_modules
+COPY --from=builder app/public ./public
+COPY --from=builder app/next.config.js ./
+
+COPY --from=builder app/.next/standalone ./
+COPY --from=builder app/.next/static ./.next/static
+RUN rm -rf /app
 
 EXPOSE 3000
 
