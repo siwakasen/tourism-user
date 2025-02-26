@@ -51,15 +51,8 @@ export default function HomePage() {
               listTourPackage={listTourPackages?.data ?? []}
             />
             <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
-            <PackageTourPupulerSection
-              listTourPackage={listTourPackages?.data ?? []}
-            />
-            <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
             <WhyChooseUsSection />
             <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
-            <WhyChooseUsSection />
-            <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
-
             <CarRentalOverview listCar={listCars?.data ?? []} />
             <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
             <OwnerSection />

@@ -15,6 +15,7 @@ const UseListDriver = () => {
         page: 1,
         search: '',
       });
+
       setDrivers(drivers?.data ?? []);
     } finally {
       setIsLoading(false);
@@ -22,7 +23,6 @@ const UseListDriver = () => {
   };
 
   useEffect(() => {
-    console.log('fetched');
     handleFetchDrivers();
   }, []);
 
