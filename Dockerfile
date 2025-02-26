@@ -23,7 +23,7 @@ RUN apk add --no-cache bash
 ENV SHELL=/bin/bash
 
 WORKDIR /appg
-COPY --from=build app/.env.production ./
+COPY --from=builder app/.env.production ./
 COPY --from=builder app/node_modules ./node_modules
 COPY --from=builder app/public ./public
 COPY --from=builder app/next.config.js ./
