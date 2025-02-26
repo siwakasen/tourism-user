@@ -1,5 +1,7 @@
 # Stage 1: Build dependencies
-FROM node:18
+FROM node:18-alpine
+RUN apk add --no-cache bash
+ENV SHELL=/bin/bash
 
 WORKDIR /app
 COPY . .
@@ -8,9 +10,7 @@ RUN pnpm install
 RUN pnpm build
 
 # Install bash
-RUN apk add --no-cache bash
 
-ENV SHELL=/bin/bash
 
 EXPOSE 3000
 
