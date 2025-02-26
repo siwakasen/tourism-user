@@ -23,7 +23,6 @@ const DestinationList: React.FC<DestinationListProps> = ({
           <span className='xl:text-lg text-sm font-semibold'>
             {item.package_name}
           </span>
-
           {/* Right Section */}
           <div className='flex items-center gap-2'>
             <span className='border border-black rounded-full xl:px-3 px-1 xl:py-1 xl:text-sm text-[10px] font-medium'>
