@@ -41,7 +41,7 @@ const ConfirmationCarModal: React.FC<ConfirmationCarModalProps> = ({
             </p>
             <p>
               <span className='font-medium text-gray-700'>Total Price:</span>{' '}
-              {formatCurrency(totalPrice, 'IDR')}
+              {formatCurrency(totalPrice, 'USD')}
             </p>
           </div>
 
