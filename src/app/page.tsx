@@ -55,11 +55,11 @@ export default function HomePage() {
             <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
             <CarRentalOverview listCar={listCars?.data ?? []} />
             <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
-            <OwnerSection />
-            <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
             <DriverOverviewSection />
             <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
             <ReviewOverviewSection />
+            <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
+            <OwnerSection />
             <div className='xlh-[20rem] sm:h-[12rem] h-[6rem]'></div>
             <EndSection />
           </>
