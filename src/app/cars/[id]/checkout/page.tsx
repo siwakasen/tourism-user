@@ -53,7 +53,7 @@ const CheckoutCarPage = () => {
   } = UseCheckoutCar(Array.isArray(id) ? id[0] : id);
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode='wait'>
       {isLoading ? (
         <motion.div
           key='skeleton'
