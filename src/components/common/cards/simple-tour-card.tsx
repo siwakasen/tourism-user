@@ -39,7 +39,7 @@ const SimpleTourPackageCard = ({ packagetour }: SimpleTourPackageCardProps) => {
         <div className='mt-2 text-gray-700 flex justify-between items-center'>
           <p className='text-sm font-medium'>From:</p>
           <p className='font-semibold text-base text-black'>
-            {formatCurrency(packagetour.package_price, 'USD')}
+            {formatCurrency(packagetour.package_price, 'IDR')}
           </p>
         </div>
       </div>

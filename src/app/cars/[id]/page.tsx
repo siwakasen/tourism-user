@@ -140,7 +140,7 @@ const DetailCar = () => {
                           </span>
                         </p>
                         <p className='text-2xl font-bold text-gray-900'>
-                          {formatCurrency(car?.price ?? 0, 'USD')}
+                          {formatCurrency(car?.price ?? 0, 'IDR')}
                         </p>
                       </div>
                       <div className='bg-red-100 text-red-500 text-xs font-bold px-2 py-1 rounded-full'>
@@ -202,7 +202,7 @@ const DetailCar = () => {
                       </span>
                     </p>
                     <p className='text-2xl font-bold text-gray-900'>
-                      {formatCurrency(car?.price ?? 0, 'USD')}
+                      {formatCurrency(car?.price ?? 0, 'IDR')}
                     </p>
                   </div>
                   <div className='bg-red-100 text-red-500 text-xs font-bold px-2 py-1 rounded-full'>
