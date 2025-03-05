@@ -121,14 +121,14 @@ const NavBar = () => {
 
         {/* Navbar End - Stays Compact */}
         <div className='navbar-end flex-shrink-0 gap-2 items-center'>
-          <UnstyledLink href='https://wa.me/6281236755961'>
+          <UnstyledLink href='https://wa.me/6281990104720'>
             <button
               className={`sm:flex hidden  items-center gap-2 py-[4px] px-2 rounded transition-transform duration-300 transform hover:scale-105 ${
                 isScrolled ? 'bg-white text-black' : 'bg-green-500 text-white'
               }`}
             >
               <IoLogoWhatsapp size={24} />
-              <h4 className='font-semibold'>081265782568</h4>
+              <h4 className='font-semibold'>+6281990104720</h4>
             </button>
           </UnstyledLink>
         </div>
