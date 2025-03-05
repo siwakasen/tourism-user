@@ -1,9 +1,16 @@
 export function formatCurrency(
   amount: number,
-  currency: 'USD' | 'IDR' | 'EUR' | 'JPY'
+  currency: 'IDR' | 'USD' | 'EUR' | 'JPY'
 ): string {
-  return new Intl.NumberFormat('en-US', {
+  const options: Intl.NumberFormatOptions = {
     style: 'currency',
     currency: currency,
-  }).format(amount);
+  };
+
+  if (currency === 'IDR') {
+    options.minimumFractionDigits = 0;
+    options.maximumFractionDigits = 0;
+  }
+
+  return new Intl.NumberFormat('en-US', options).format(amount);
 }

@@ -493,7 +493,7 @@ const CheckoutPage = () => {
                   <div className='flex justify-between items-center mb-2'>
                     <p className='text-sm text-gray-900'>
                       {formData('adult_count')} x{' '}
-                      {formatCurrency(packageTour?.package_price ?? 0, 'USD')}
+                      {formatCurrency(packageTour?.package_price ?? 0, 'IDR')}
                     </p>
                   </div>
                   <div className='flex justify-between items-center mb-2'>
@@ -502,7 +502,7 @@ const CheckoutPage = () => {
                         {formData('children_count')} x{' '}
                         {formatCurrency(
                           packageTour?.children_price ?? 0,
-                          'USD'
+                          'IDR'
                         )}
                       </p>
                     )}
@@ -513,7 +513,7 @@ const CheckoutPage = () => {
                       {formatCurrency(
                         totalPrice -
                           totalPrice / (1 - discountPercentage / 100),
-                        'USD'
+                        'IDR'
                       )}
                     </p>
                   </div>
@@ -523,7 +523,7 @@ const CheckoutPage = () => {
                       Total due
                     </p>
                     <p className='text-xl font-bold text-gray-900'>
-                      {formatCurrency(totalPrice, 'USD')}
+                      {formatCurrency(totalPrice, 'IDR')}
                     </p>
                   </div>
                 </motion.div>

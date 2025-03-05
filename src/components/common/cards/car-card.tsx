@@ -11,9 +11,9 @@ interface CarCardProps {
 
 const CarCard = ({ car }: CarCardProps) => {
   return (
-    <div className='group relative card 2xl:max-w-[90%] xl:max-w-[75%] sm:max-w-[85%] max-w-[95%] xl:w-[30rem] lg:w-[22rem] sm:w-[28rem] w-[90%] shadow-xl  bg-neutral-light sm:h-[32rem] h-[28rem] rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 m-0'>
+    <div className='group relative card 2xl:max-w-[90%] xl:max-w-[75%] sm:max-w-[85%] max-w-[95%] xl:w-[30rem] lg:w-[22rem] sm:w-[28rem] w-[90%] shadow-xl  bg-neutral-light sm:h-[26rem] h-[24rem] rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 m-0'>
       {/* Image Section */}
-      <div className='relative h-[40%] '>
+      <div className='relative h-[60%] '>
         <NextImage
           src={getImageUrl(`car-images/${car?.car_image ?? ''}`)}
           alt={car.car_name}
@@ -35,28 +35,18 @@ const CarCard = ({ car }: CarCardProps) => {
             </p>
             <div className='border-t-2 border-gray-200 mt-2 mb-4'></div>
           </div>
-          {/* Content Section */}
-          <div className='mb-4 max-h-20 overflow-hidden '>
-            <ul className='list-disc list-inside text-gray-700 text-sm'>
-              <li>Brand: {car.brand.brand_name}</li>
-              <li>Min Capacity: {car.min_person}</li>
-              <li>Max Capacity: {car.max_person}</li>
-              {car.includes.slice(0, 3).map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
         </div>
 
         {/* Pricing Section */}
         <div className='bg-gray-200 rounded-xl border-gray-300 border sm:p-4 py-2 px-4 flex flex-row justify-between items-center'>
-          <p className='text-gray-700 max-w-[50%] text-xs'>
+          <p className='text-gray-700 max-w-[40%] text-xs'>
             Get the best value for your trip
           </p>
-          <div className='text-black text-right '>
-            <p className='font-semibold text-base'>
+          <div className='text-black text-right max-w-[60%]'>
+            <p className='font-semibold text-base flex justify-center items-center'>
               {formatCurrency(car.price, 'IDR')}
-              <span className='text-sm'> /Day</span>
+
+              <span className='text-sm'> / Day </span>
             </p>
           </div>
         </div>

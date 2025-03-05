@@ -195,7 +195,7 @@ const DetailPackageTour = () => {
                         <p className='text-4xl font-bold text-gray-900'>
                           {formatCurrency(
                             packageTour?.package_price ?? 0,
-                            'USD'
+                            'IDR'
                           )}
                         </p>
                       </div>
@@ -272,7 +272,7 @@ const DetailPackageTour = () => {
                       </span>
                     </p>
                     <p className='text-2xl font-bold text-gray-900'>
-                      {formatCurrency(packageTour?.package_price ?? 0, 'USD')}
+                      {formatCurrency(packageTour?.package_price ?? 0, 'IDR')}
                     </p>
                   </div>
                   <div className='bg-red-100 text-red-500 text-xs font-bold px-2 py-1 rounded-full'>
