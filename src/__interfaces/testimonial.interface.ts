@@ -1,4 +1,4 @@
-export interface ListTertimonialResI {
+export interface ListTestimonialResI {
   data: Testimonial[];
 }
 

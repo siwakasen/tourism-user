@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatePresence, motion } from 'framer-motion';
+import * as FM from 'framer-motion';
 import * as React from 'react';
 import '@/lib/env';
 
@@ -35,16 +35,16 @@ export default function HomePage() {
       <NavBar />
       <HeroSection />
       <div className='xl:h-[12rem] sm:h-[8rem] h-[4rem]'></div>
-      <AnimatePresence>
+      <FM.AnimatePresence>
         {isLoading ? (
-          <motion.div
+          <FM.motion.div
             key='skeleton'
             className='animate-pulse px-4 layout '
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-          ></motion.div>
+          ></FM.motion.div>
         ) : (
           <>
             <PackageTourPupulerSection
@@ -64,7 +64,7 @@ export default function HomePage() {
             <EndSection />
           </>
         )}
-      </AnimatePresence>
+      </FM.AnimatePresence>
     </div>
   );
 }

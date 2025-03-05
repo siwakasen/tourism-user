@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { fetchTestimonials } from '@/_services/testimonial';
 import { Testimonial } from '@/__interfaces/testimonial.interface';
+import { fetchTestimonials } from '@/_services/testimonial';
 
 const UseListTestimonial = () => {
   const [testimonials, setTestimonial] = useState<Testimonial[]>([]);

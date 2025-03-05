@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatePresence, motion } from 'framer-motion';
+import * as FM from 'framer-motion';
 import { useParams } from 'next/navigation';
 import React, { useState } from 'react';
 import Select from 'react-select';
@@ -53,9 +53,9 @@ const CheckoutCarPage = () => {
   } = UseCheckoutCar(Array.isArray(id) ? id[0] : id);
 
   return (
-    <AnimatePresence>
+    <FM.AnimatePresence>
       {isLoading ? (
-        <motion.div
+        <FM.motion.div
           key='skeleton'
           className='animate-pulse px-4 layout '
           initial={{ opacity: 0 }}
@@ -67,9 +67,9 @@ const CheckoutCarPage = () => {
           <div className='h-[800px] w-full bg-gray-300 rounded-lg mb-6'></div>
           <div className='h-8 w-2/3 bg-gray-300 rounded mb-4'></div>
           <div className='h-6 w-1/2 bg-gray-300 rounded mb-6'></div>
-        </motion.div>
+        </FM.motion.div>
       ) : (
-        <motion.div
+        <FM.motion.div
           key='content'
           className='layout'
           initial={{ opacity: 0 }}
@@ -102,18 +102,18 @@ const CheckoutCarPage = () => {
               </div>
             </div>
             <div className='relative z-10 h-full layout px-0 flex flex-col justify-start items-start py-6 text-neutral-light gap-6 top-[10vh]'>
-              <motion.h1
+              <FM.motion.h1
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: 'easeOut' }}
                 className='xl:text-5xl sm:text-4xl text-3xl font-bold text-white drop-shadow-[2px_2px_4px_rgba(0,0,0,0.7)]'
               >
                 Booking Detail
-              </motion.h1>
+              </FM.motion.h1>
             </div>
 
             <form className='relative z-20 flex sm:flex-row flex-col layout px-0 gap-12 mt-[2rem] top-[8vh] '>
-              <motion.div
+              <FM.motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, ease: 'easeOut' }}
@@ -402,9 +402,9 @@ const CheckoutCarPage = () => {
                     />
                   </div>
                 </section>
-              </motion.div>
+              </FM.motion.div>
 
-              <motion.div
+              <FM.motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, ease: 'easeOut' }}
@@ -436,7 +436,7 @@ const CheckoutCarPage = () => {
                 >
                   Next Booking
                 </Button>
-              </motion.div>
+              </FM.motion.div>
             </form>
             <div className='h-[10rem]'></div>
             <CheckoutCarModal
@@ -460,9 +460,9 @@ const CheckoutCarPage = () => {
               totalPrice={totalPrice}
             />
           </div>
-        </motion.div>
+        </FM.motion.div>
       )}
-    </AnimatePresence>
+    </FM.AnimatePresence>
   );
 };
 

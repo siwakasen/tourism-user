@@ -2,7 +2,7 @@
 import NextImage from '@/components/NextImage';
 
 import { Testimonial } from '@/__interfaces/testimonial.interface';
-import { getImageTestimonial, getImageUrl } from '@/__utils/get-image-helper';
+import { getImageTestimonial } from '@/__utils/get-image-helper';
 
 interface ReviewCardProps {
   testimonial: Testimonial;
