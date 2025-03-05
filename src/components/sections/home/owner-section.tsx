@@ -21,7 +21,7 @@ const LeadershipSection = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-2'>
-            Meet Our Founder
+            Meet Our Manager
           </h2>
         </motion.h2>
 
@@ -67,14 +67,14 @@ const LeadershipSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <h3 className='text-2xl font-bold text-gray-900 mb-1'>
-            Alexandra Morrison
+            Agung Lingga Sedana
           </h3>
           <p className='text-gray-600 text-lg mb-6'>
-            Founder & Chief Executive Officer
+            Manager
           </p>
 
           {/* Social Media Icons */}
-          <div className='flex justify-center gap-4 '>
+          {/* <div className='flex justify-center gap-4 '>
             <a
               href='#'
               className='text-gray-900 hover:text-gray-700 transition-colors'
@@ -96,7 +96,7 @@ const LeadershipSection = () => {
               <Instagram size={24} />
               <span className='sr-only'>Instagram</span>
             </a>
-          </div>
+          </div> */}
         </motion.div>
 
         {/* Bio Paragraph */}
@@ -106,8 +106,8 @@ const LeadershipSection = () => {
           transition={{ duration: 0.6, delay: 0.6 }}
           className='text-gray-600 max-w-2xl mx-auto text-center mb-8'
         >
-          With over 15 years of industry experience, Alexandra leads our company
-          with vision and innovation. Her commitment to excellence and
+          With over 15 years of industry experience, Agung leads our company
+          with vision and innovation. His commitment to excellence and
           sustainable practices has transformed how we approach business in the
           modern era.
         </motion.p>
