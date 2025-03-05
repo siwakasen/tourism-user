@@ -1,13 +1,13 @@
 export function formatCurrency(
   amount: number,
-  currency: 'IDR' | 'USD' | 'EUR' | 'JPY'
+  currency: 'USD' | 'USD' | 'EUR' | 'JPY'
 ): string {
   const options: Intl.NumberFormatOptions = {
     style: 'currency',
     currency: currency,
   };
 
-  if (currency === 'IDR') {
+  if (currency === 'USD') {
     options.minimumFractionDigits = 0;
     options.maximumFractionDigits = 0;
   }

@@ -44,7 +44,7 @@ const CarCard = ({ car }: CarCardProps) => {
           </p>
           <div className='text-black text-right max-w-[60%]'>
             <p className='font-semibold text-base flex justify-center items-center'>
-              {formatCurrency(car.price, 'IDR')}
+              {formatCurrency(car.price, 'USD')}
 
               <span className='text-sm'> / Day </span>
             </p>

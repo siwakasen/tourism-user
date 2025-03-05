@@ -71,7 +71,7 @@ const CheckoutPage = () => {
       {isLoading ? (
         <motion.div
           key='skeleton'
-          className='animate-pulse px-4 layout '
+          className='animate-pulse  layout '
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -137,7 +137,7 @@ const CheckoutPage = () => {
               </motion.h1>
             </div>
 
-            <form className='relative z-20 flex sm:flex-row flex-col layout px-0 gap-12 mt-[2rem] top-[8vh] '>
+            <form className='relative z-20 flex sm:flex-row flex-col  px-0 gap-12 mt-[2rem] top-[8vh] '>
               {/* Main Content Section */}
               <motion.div
                 ref={refDetails}
@@ -493,7 +493,7 @@ const CheckoutPage = () => {
                   <div className='flex justify-between items-center mb-2'>
                     <p className='text-sm text-gray-900'>
                       {formData('adult_count')} x{' '}
-                      {formatCurrency(packageTour?.package_price ?? 0, 'IDR')}
+                      {formatCurrency(packageTour?.package_price ?? 0, 'USD')}
                     </p>
                   </div>
                   <div className='flex justify-between items-center mb-2'>
@@ -502,7 +502,7 @@ const CheckoutPage = () => {
                         {formData('children_count')} x{' '}
                         {formatCurrency(
                           packageTour?.children_price ?? 0,
-                          'IDR'
+                          'USD'
                         )}
                       </p>
                     )}
@@ -513,7 +513,7 @@ const CheckoutPage = () => {
                       {formatCurrency(
                         totalPrice -
                           totalPrice / (1 - discountPercentage / 100),
-                        'IDR'
+                        'USD'
                       )}
                     </p>
                   </div>
@@ -523,7 +523,7 @@ const CheckoutPage = () => {
                       Total due
                     </p>
                     <p className='text-xl font-bold text-gray-900'>
-                      {formatCurrency(totalPrice, 'IDR')}
+                      {formatCurrency(totalPrice, 'USD')}
                     </p>
                   </div>
                 </motion.div>

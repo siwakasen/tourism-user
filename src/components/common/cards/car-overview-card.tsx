@@ -44,7 +44,7 @@ const CarOverviewCard = ({
           Book Trip
         </ButtonLink>
         <p className='xl:text-2xl sm:text-xl text-2xl text-black '>
-          {formatCurrency(price, 'IDR')}
+          {formatCurrency(price, 'USD')}
         </p>
       </div>
     </div>

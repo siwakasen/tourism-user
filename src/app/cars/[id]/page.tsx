@@ -29,7 +29,7 @@ const DetailCar = () => {
       {isLoading ? (
         <motion.div
           key='skeleton'
-          className='animate-pulse px-4 layout '
+          className='animate-pulse layout '
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -81,10 +81,11 @@ const DetailCar = () => {
                 />
               </div>
             </div>
-            <div className='relative z-20 -top-[35%] px-0 layout rounded-3xl'>
+            <div className='relative z-20 -top-[35%] px-0  rounded-3xl'>
               <div className='h-[10rem]'></div>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
+                x
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
                 className='px-0'
@@ -140,7 +141,7 @@ const DetailCar = () => {
                           </span>
                         </p>
                         <p className='text-2xl font-bold text-gray-900'>
-                          {formatCurrency(car?.price ?? 0, 'IDR')}
+                          {formatCurrency(car?.price ?? 0, 'USD')}
                         </p>
                       </div>
                       <div className='bg-red-100 text-red-500 text-xs font-bold px-2 py-1 rounded-full'>
@@ -187,7 +188,7 @@ const DetailCar = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
-              className=' space-y-6 sm:hidden sticky bottom-4 z-20 layout px-1 '
+              className=' space-y-6 px-0 sm:hidden sticky bottom-4 z-20 layout w-full'
             >
               {/* Harga dan Diskon */}
               <div className='bg-white rounded-3xl shadow-sm p-4 border border-gray-300'>
@@ -202,7 +203,7 @@ const DetailCar = () => {
                       </span>
                     </p>
                     <p className='text-2xl font-bold text-gray-900'>
-                      {formatCurrency(car?.price ?? 0, 'IDR')}
+                      {formatCurrency(car?.price ?? 0, 'USD')}
                     </p>
                   </div>
                   <div className='bg-red-100 text-red-500 text-xs font-bold px-2 py-1 rounded-full'>

@@ -32,7 +32,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
         <div className='flex flex-col'>
           <p className='text-gray-600 font-semibold text-sm'>Adult Price</p>
           <p className='text-gray-800 text-lg font-bold'>
-            {formatCurrency(packagePrice, 'IDR')}
+            {formatCurrency(packagePrice, 'USD')}
           </p>
         </div>
       </div>
@@ -47,7 +47,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
               Children Price
             </p>
             <p className='text-gray-800 text-lg font-bold'>
-              {formatCurrency(childrenPrice, 'IDR')}
+              {formatCurrency(childrenPrice, 'USD')}
             </p>
           </div>
         </div>

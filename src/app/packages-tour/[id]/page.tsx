@@ -195,7 +195,7 @@ const DetailPackageTour = () => {
                         <p className='text-4xl font-bold text-gray-900'>
                           {formatCurrency(
                             packageTour?.package_price ?? 0,
-                            'IDR'
+                            'USD'
                           )}
                         </p>
                       </div>
@@ -257,7 +257,7 @@ const DetailPackageTour = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
-              className=' space-y-6 sm:hidden sticky  bottom-4 z-20  px-1 '
+              className=' space-y-6 sm:hidden sticky  bottom-4 z-20  '
             >
               {/* Harga dan Diskon */}
               <div className='bg-white rounded-3xl shadow-sm p-4 border border-gray-300'>
@@ -272,7 +272,7 @@ const DetailPackageTour = () => {
                       </span>
                     </p>
                     <p className='text-2xl font-bold text-gray-900'>
-                      {formatCurrency(packageTour?.package_price ?? 0, 'IDR')}
+                      {formatCurrency(packageTour?.package_price ?? 0, 'USD')}
                     </p>
                   </div>
                   <div className='bg-red-100 text-red-500 text-xs font-bold px-2 py-1 rounded-full'>

@@ -57,7 +57,7 @@ const CheckoutCarPage = () => {
       {isLoading ? (
         <motion.div
           key='skeleton'
-          className='animate-pulse px-4 layout '
+          className='animate-pulse layout '
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -112,7 +112,7 @@ const CheckoutCarPage = () => {
               </motion.h1>
             </div>
 
-            <form className='relative z-20 flex sm:flex-row flex-col layout px-0 gap-12 mt-[2rem] top-[8vh] '>
+            <form className='relative z-20 flex sm:flex-row flex-col  px-0 gap-12 mt-[2rem] top-[8vh] '>
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -416,14 +416,14 @@ const CheckoutCarPage = () => {
                   </h3>
                   <div className='flex justify-between items-center mb-4'>
                     <p className='text-sm text-gray-900'>
-                      {days} Days x {formatCurrency(totalPrice, 'IDR')}
+                      {days} Days x {formatCurrency(totalPrice, 'USD')}
                     </p>
                   </div>
                   <hr className='my-4 border-gray-300' />
                   <div className='flex justify-between items-center mb-4'>
                     <p className='text-sm font-medium text-gray-900'>Total</p>
                     <p className='text-xl font-bold text-gray-900'>
-                      {formatCurrency(totalPrice, 'IDR')}
+                      {formatCurrency(totalPrice, 'USD')}
                     </p>
                   </div>
                 </div>
