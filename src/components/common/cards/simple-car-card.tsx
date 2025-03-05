@@ -42,7 +42,7 @@ const SimpleCarCard = ({ car }: SimpleCarCardProps) => {
         <div className='mt-2 text-gray-700 flex justify-between items-center'>
           <p className='text-sm font-medium'>Price:</p>
           <p className='font-semibold text-base text-black'>
-            {formatCurrency(car.price, 'IDR')}
+            {formatCurrency(car.price, 'USD')}
           </p>
         </div>
 

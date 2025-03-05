@@ -87,7 +87,7 @@
     /* Responsive max-width */
     @apply mx-auto w-11/12;
     max-width: 100%;
-    padding: 0px 20px;
+    padding: 0px 12px;
     @screen sm {
       padding: 0px 20px;
       max-width: 640px;

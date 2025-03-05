@@ -45,7 +45,7 @@ const TourPackageCard = ({ packagetour }: TourPackageCardProps) => {
           </p>
           <div className='text-black text-right '>
             <p className='flex justify-end items-center font-semibold text-base'>
-              {formatCurrency(packagetour.package_price, 'IDR')}/{' '}
+              {formatCurrency(packagetour.package_price, 'USD')}/{' '}
               <IoPersonSharp />
             </p>
             <p className='sm:text-sm text-xs'>
@@ -53,7 +53,7 @@ const TourPackageCard = ({ packagetour }: TourPackageCardProps) => {
               <span className='font-semibold sm:text-base'>
                 {formatCurrency(
                   packagetour.package_price * packagetour.max_group_size,
-                  'IDR'
+                  'USD'
                 )}
               </span>
             </p>

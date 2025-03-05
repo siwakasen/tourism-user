@@ -1,9 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
+import { IoLogoWhatsapp } from 'react-icons/io';
 
-import ButtonLink from '@/components/common/links/ButtonLink';
 import UnstyledLink from '@/components/common/links/UnstyledLink';
-
 export interface NavigationDataI {
   title: string;
   href: string;
@@ -121,17 +120,17 @@ const NavBar = () => {
         </div>
 
         {/* Navbar End - Stays Compact */}
-        <div className='navbar-end flex-shrink-0'>
-          <ButtonLink
-            href='/packages-tour'
-            className={`rounded-full ${
-              isScrolled
-                ? 'bg-black text-white hover:bg-black border border-white active:bg-black'
-                : 'bg-transparent backdrop-blur-md text-white hover:bg-black hover:text-white border border-white active:bg-black'
-            }`}
-          >
-            Book Now
-          </ButtonLink>
+        <div className='navbar-end flex-shrink-0 gap-2 items-center'>
+          <UnstyledLink href='https://wa.me/6281236755961'>
+            <button
+              className={`sm:flex hidden  items-center gap-2 py-[4px] px-2 rounded transition-transform duration-300 transform hover:scale-105 ${
+                isScrolled ? 'bg-white text-black' : 'bg-green-500 text-white'
+              }`}
+            >
+              <IoLogoWhatsapp size={24} />
+              <h4 className='font-semibold'>081265782568</h4>
+            </button>
+          </UnstyledLink>
         </div>
       </div>
     </nav>
