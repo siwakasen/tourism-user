@@ -85,7 +85,6 @@ const DetailCar = () => {
               <div className='h-[10rem]'></div>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
-                x
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
                 className='px-0'
