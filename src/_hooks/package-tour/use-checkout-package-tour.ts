@@ -131,7 +131,7 @@ const UseCheckoutPackageTour = (id: string) => {
   ) => {
     try {
       sendWhatsAppMessage({
-        phoneNumber: '6281236755961', // Contoh nomor telepon (Indonesia)
+        phoneNumber: '6281990104720', // Contoh nomor telepon (Indonesia)
         message: generateBookingMessage(dataTour, data!, totalPrice),
       });
     } finally {
